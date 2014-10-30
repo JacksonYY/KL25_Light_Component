@@ -1,0 +1,5 @@
+.gitignore使用
+Debug/ 忽略Debug目录下的所有文件
+.gitignore只会忽略untrack的东西， 因为在前面已经Track过Debug目录，必须先移除出去
+使用命令git rm Debug/* ，然后修改.gitignore,再提交推送
+
