@@ -17,6 +17,6 @@
 
 
 //宏常数
-#define RUN_COUNTER_MAX   15ul   //小灯闪烁频率
+#define RUN_COUNTER_MAX   1500000ul   //小灯闪烁频率
 
 #endif              //防止重复定义（结尾）

@@ -3,14 +3,14 @@ KL25_Light_Component.elf:     file format elf32-littlearm
 KL25_Light_Component.elf
 architecture: arm, flags 0x00000112:
 EXEC_P, HAS_SYMS, D_PAGED
-start address 0x00000a71
+start address 0x00000a85
 
 Program Header:
     LOAD off    0x00008000 vaddr 0x00000000 paddr 0x00000000 align 2**15
          filesz 0x000000c0 memsz 0x000000c0 flags rw-
     LOAD off    0x00008800 vaddr 0x00000800 paddr 0x00000800 align 2**15
-         filesz 0x00000548 memsz 0x00000548 flags r-x
-    LOAD off    0x0000f410 vaddr 0x1ffff410 paddr 0x00000d48 align 2**15
+         filesz 0x0000055c memsz 0x0000055c flags r-x
+    LOAD off    0x0000f410 vaddr 0x1ffff410 paddr 0x00000d5c align 2**15
          filesz 0x00000024 memsz 0x00000024 flags rw-
     LOAD off    0x00010410 vaddr 0x20000410 paddr 0x20000410 align 2**15
          filesz 0x00000000 memsz 0x00000400 flags rw-
@@ -19,19 +19,19 @@ private flags = 5000002: [Version5 EABI] [has entry point]
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn  Flags
   0 .interrupts   000000c0  00000000  00000000  00008000  2**2  CONTENTS, ALLOC, LOAD, DATA
-  1 .text         00000548  00000800  00000800  00008800  2**2  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .text         0000055c  00000800  00000800  00008800  2**2  CONTENTS, ALLOC, LOAD, READONLY, CODE
   2 ._user_heap_stack 00000400  20000410  20000410  00010410  2**0  ALLOC
-  3 .romp         00000024  1ffff410  00000d48  0000f410  2**0  CONTENTS, ALLOC, LOAD, DATA
+  3 .romp         00000024  1ffff410  00000d5c  0000f410  2**0  CONTENTS, ALLOC, LOAD, DATA
   4 .ARM.attributes 00000032  00000000  00000000  0000f434  2**0  CONTENTS, READONLY
   5 .debug_info   0000102b  00000000  00000000  0000f466  2**0  CONTENTS, READONLY, DEBUGGING
   6 .debug_abbrev 000004ab  00000000  00000000  00010491  2**0  CONTENTS, READONLY, DEBUGGING
   7 .debug_aranges 00000130  00000000  00000000  0001093c  2**0  CONTENTS, READONLY, DEBUGGING
   8 .debug_ranges 000000d0  00000000  00000000  00010a6c  2**0  CONTENTS, READONLY, DEBUGGING
   9 .debug_macro  000003bc  00000000  00000000  00010b3c  2**0  CONTENTS, READONLY, DEBUGGING
- 10 .debug_line   00000c6c  00000000  00000000  00010ef8  2**0  CONTENTS, READONLY, DEBUGGING
- 11 .debug_str    00021b06  00000000  00000000  00011b64  2**0  CONTENTS, READONLY, DEBUGGING
- 12 .comment      0000002a  00000000  00000000  0003366a  2**0  CONTENTS, READONLY
- 13 .debug_frame  000002d4  00000000  00000000  00033694  2**2  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_line   00000c6d  00000000  00000000  00010ef8  2**0  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_str    00021b0b  00000000  00000000  00011b65  2**0  CONTENTS, READONLY, DEBUGGING
+ 12 .comment      0000002a  00000000  00000000  00033670  2**0  CONTENTS, READONLY
+ 13 .debug_frame  000002d4  00000000  00000000  0003369c  2**2  CONTENTS, READONLY, DEBUGGING
 SYMBOL TABLE:
 00000000 l    d  .interrupts	00000000 .interrupts
 00000800 l    d  .text	00000000 .text
@@ -51,20 +51,20 @@ SYMBOL TABLE:
 00000000 l    df *ABS*	00000000 main.c
 00000000 l    df *ABS*	00000000 light.c
 00000000 l    df *ABS*	00000000 gpio.c
-00000d20 l     O .text	00000014 PORT_ARR
-00000d34 l     O .text	00000014 GPIO_ARR
-00000880 l     F .text	00000034 gpio_port_pin_resolution
+00000d34 l     O .text	00000014 PORT_ARR
+00000d48 l     O .text	00000014 GPIO_ARR
+00000894 l     F .text	00000034 gpio_port_pin_resolution
 00000000 l    df *ABS*	00000000 startup.c
-00000a9c l     F .text	00000054 vector_init
-00000af0 l     F .text	0000003c m_zero_fill_bss
-00000b2c l     F .text	00000048 m_data_seg_init
-00000b74 l     F .text	00000024 sys_pin_enable_port
+00000ab0 l     F .text	00000054 vector_init
+00000b04 l     F .text	0000003c m_zero_fill_bss
+00000b40 l     F .text	00000048 m_data_seg_init
+00000b88 l     F .text	00000024 sys_pin_enable_port
 00000000 l    df *ABS*	00000000 sysinit.c
 00000000 l    df *ABS*	00000000 
 00000400 l       *ABS*	00000000 __stack_size
 20000410 l       .text	00000000 _sdata
 1ffff410 l       .text	00000000 ___m_data_1FFFF000_RAMStart
-00000d48 l       .text	00000000 ___ROM_AT
+00000d5c l       .text	00000000 ___ROM_AT
 00000000 l       *ABS*	00000000 __heap_size
 20003000 l       *ABS*	00000000 __SP_INIT
 1ffff410 l       .text	00000000 ___m_data_1FFFF000_RAMEnd
@@ -72,36 +72,36 @@ SYMBOL TABLE:
 20000410 l       .text	00000000 _edata
 20000410 g       .text	00000000 __START_DATA
 20000410 g       ._user_heap_stack	00000000 __heap_addr
-00000838 g     F .text	0000002a light_init
-00000d48 g       .text	00000000 __exidx_end
-00000d48 g       .text	00000000 _etext
-00000a70 g     F .text	0000002c startup
-00000b98 g     F .text	00000180 sys_init
-00000d48 g       .text	00000000 __DTOR_END__
+0000084c g     F .text	0000002a light_init
+00000d5c g       .text	00000000 __exidx_end
+00000d5c g       .text	00000000 _etext
+00000a84 g     F .text	0000002c startup
+00000bac g     F .text	00000180 sys_init
+00000d5c g       .text	00000000 __DTOR_END__
 20000410 g       .text	00000000 __START_BSS
 20000410 g       .text	00000000 __bss_start__
-00000d48 g       .text	00000000 __exidx_start
+00000d5c g       .text	00000000 __exidx_start
 20003000 g       *ABS*	00000000 __BOOT_STACK_ADDRESS
-00000d18 g     F .text	00000008 NOS_isrDummy
+00000d2c g     F .text	00000008 NOS_isrDummy
 1ffff000 g       *ABS*	00000000 __VECTOR_RAM
-00000d48 g       .text	00000000 __CTOR_LIST__
+00000d5c g       .text	00000000 __CTOR_LIST__
 20000410 g       .text	00000000 __bss_end__
 00000000 g       .interrupts	00000000 __vector_table
 00000000 g       *ABS*	00000000 ___m_data_1FFFF000_ROMSize
-00000864 g     F .text	0000001c light_change
-00000800 g     F .text	00000038 main
-00000d48 g       .text	00000000 __START_DATA_ROM
-00000d48 g       .text	00000000 __CTOR_END__
-00000d48 g       .text	00000000 __DTOR_LIST__
+00000878 g     F .text	0000001c light_change
+00000800 g     F .text	0000004c main
+00000d5c g       .text	00000000 __START_DATA_ROM
+00000d5c g       .text	00000000 __CTOR_END__
+00000d5c g       .text	00000000 __DTOR_LIST__
 20000410 g       .text	00000000 __END_BSS
-00000d48 g       .text	00000000 _romp_at
-00000d48 g       .text	00000000 ___m_data_1FFFF000_ROMStart
-00000d48 g       .text	00000000 __S_romp
+00000d5c g       .text	00000000 _romp_at
+00000d5c g       .text	00000000 ___m_data_1FFFF000_ROMStart
+00000d5c g       .text	00000000 __S_romp
 20000410 g       .text	00000000 __END_DATA
-0000099c g     F .text	00000080 gpio_set
+000009b0 g     F .text	00000080 gpio_set
 00000000 g     O .interrupts	000000c0 rom_vector
-00000a1c g     F .text	00000054 gpio_reverse
-000008b4 g     F .text	000000e8 gpio_init
+00000a30 g     F .text	00000054 gpio_reverse
+000008c8 g     F .text	000000e8 gpio_init
 00000000 g       *ABS*	00000000 ___data_size
 
 
@@ -133,51 +133,61 @@ E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/.
  80a:	33ff      	adds	r3, #255	; 0xff
  80c:	1c18      	adds	r0, r3, #0
  80e:	2101      	movs	r1, #1
- 810:	f000 f812 	bl	838 <light_init>
-E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../08_Source/main.c:15
+ 810:	f000 f81c 	bl	84c <light_init>
+E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../08_Source/main.c:14
+	light_init(RUN_LIGHT_RED,LIGHT_OFF);
+ 814:	2314      	movs	r3, #20
+ 816:	33ff      	adds	r3, #255	; 0xff
+ 818:	1c18      	adds	r0, r3, #0
+ 81a:	2101      	movs	r1, #1
+ 81c:	f000 f816 	bl	84c <light_init>
+E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../08_Source/main.c:16
 	//4. 给有关变量赋初值
 	mRuncount=0;            //主循环计数器
- 814:	2300      	movs	r3, #0
- 816:	607b      	str	r3, [r7, #4]
-E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../08_Source/main.c:18
+ 820:	2300      	movs	r3, #0
+ 822:	607b      	str	r3, [r7, #4]
+E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../08_Source/main.c:19
 	//5. 使能模块中断
 	//6. 开总中断
 	ENABLE_INTERRUPTS;
- 818:	b662      	cpsie	i
-E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../08_Source/main.c:25
+ 824:	b662      	cpsie	i
+E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../08_Source/main.c:26
 	//进入主循环
 	//主循环开始==================================================================
 	for(;;)
 	{
 	    //运行指示灯闪烁-----------------------------------------------
 	    mRuncount++;			   //主循环次数计数器+1
- 81a:	687b      	ldr	r3, [r7, #4]
- 81c:	3301      	adds	r3, #1
- 81e:	607b      	str	r3, [r7, #4]
-E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../08_Source/main.c:26
+ 826:	687b      	ldr	r3, [r7, #4]
+ 828:	3301      	adds	r3, #1
+ 82a:	607b      	str	r3, [r7, #4]
+E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../08_Source/main.c:27
 	    if (mRuncount >= RUN_COUNTER_MAX)  //主循环次数计数器大于设定的宏常数
- 820:	687b      	ldr	r3, [r7, #4]
- 822:	2b0e      	cmp	r3, #14
- 824:	d907      	bls.n	836 <main+0x36>
-E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../08_Source/main.c:28
+ 82c:	687a      	ldr	r2, [r7, #4]
+ 82e:	4b06      	ldr	r3, [pc, #24]	; (848 <main+0x48>)
+ 830:	429a      	cmp	r2, r3
+ 832:	d907      	bls.n	844 <main+0x44>
+E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../08_Source/main.c:29
 	    {
 		mRuncount=0;		   //主循环次数计数器清零
- 826:	2300      	movs	r3, #0
- 828:	607b      	str	r3, [r7, #4]
-E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../08_Source/main.c:29
+ 834:	2300      	movs	r3, #0
+ 836:	607b      	str	r3, [r7, #4]
+E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../08_Source/main.c:30
 		light_change(RUN_LIGHT_BLUE);      //蓝灯（RUN_LIGHT_BLUE）状态变化
- 82a:	230a      	movs	r3, #10
- 82c:	33ff      	adds	r3, #255	; 0xff
- 82e:	1c18      	adds	r0, r3, #0
- 830:	f000 f818 	bl	864 <light_change>
-E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../08_Source/main.c:32
+ 838:	230a      	movs	r3, #10
+ 83a:	33ff      	adds	r3, #255	; 0xff
+ 83c:	1c18      	adds	r0, r3, #0
+ 83e:	f000 f81b 	bl	878 <light_change>
+E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../08_Source/main.c:33
 	    }
 	   //以下加入用户程序----------------------------------------------
 	}  //主循环end_for
- 834:	e7f1      	b.n	81a <main+0x1a>
- 836:	e7f0      	b.n	81a <main+0x1a>
+ 842:	e7f0      	b.n	826 <main+0x26>
+ 844:	e7ef      	b.n	826 <main+0x26>
+ 846:	46c0      	nop			; (mov r8, r8)
+ 848:	0016e35f 	.word	0x0016e35f
 
-00000838 <light_init>:
+0000084c <light_init>:
 light_init():
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../06_App_Component/light/light.c:18
 //       state：设定小灯状态。由light.h中宏定义。
@@ -186,33 +196,33 @@ E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/.
 //===========================================================================
 void light_init(uint_16 port_pin, uint_8 state)
 {
- 838:	b580      	push	{r7, lr}
- 83a:	b082      	sub	sp, #8
- 83c:	af00      	add	r7, sp, #0
- 83e:	1c0a      	adds	r2, r1, #0
- 840:	1dbb      	adds	r3, r7, #6
- 842:	1c01      	adds	r1, r0, #0
- 844:	8019      	strh	r1, [r3, #0]
- 846:	1d7b      	adds	r3, r7, #5
- 848:	701a      	strb	r2, [r3, #0]
+ 84c:	b580      	push	{r7, lr}
+ 84e:	b082      	sub	sp, #8
+ 850:	af00      	add	r7, sp, #0
+ 852:	1c0a      	adds	r2, r1, #0
+ 854:	1dbb      	adds	r3, r7, #6
+ 856:	1c01      	adds	r1, r0, #0
+ 858:	8019      	strh	r1, [r3, #0]
+ 85a:	1d7b      	adds	r3, r7, #5
+ 85c:	701a      	strb	r2, [r3, #0]
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../06_App_Component/light/light.c:19
     gpio_init(port_pin, 1, state);
- 84a:	1dbb      	adds	r3, r7, #6
- 84c:	881a      	ldrh	r2, [r3, #0]
- 84e:	1d7b      	adds	r3, r7, #5
- 850:	781b      	ldrb	r3, [r3, #0]
- 852:	1c10      	adds	r0, r2, #0
- 854:	2101      	movs	r1, #1
- 856:	1c1a      	adds	r2, r3, #0
- 858:	f000 f82c 	bl	8b4 <gpio_init>
+ 85e:	1dbb      	adds	r3, r7, #6
+ 860:	881a      	ldrh	r2, [r3, #0]
+ 862:	1d7b      	adds	r3, r7, #5
+ 864:	781b      	ldrb	r3, [r3, #0]
+ 866:	1c10      	adds	r0, r2, #0
+ 868:	2101      	movs	r1, #1
+ 86a:	1c1a      	adds	r2, r3, #0
+ 86c:	f000 f82c 	bl	8c8 <gpio_init>
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../06_App_Component/light/light.c:20
 }
- 85c:	46bd      	mov	sp, r7
- 85e:	b002      	add	sp, #8
- 860:	bd80      	pop	{r7, pc}
- 862:	46c0      	nop			; (mov r8, r8)
+ 870:	46bd      	mov	sp, r7
+ 872:	b002      	add	sp, #8
+ 874:	bd80      	pop	{r7, pc}
+ 876:	46c0      	nop			; (mov r8, r8)
 
-00000864 <light_change>:
+00000878 <light_change>:
 light_change():
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../06_App_Component/light/light.c:41
 //函数参数：port_pin：(端口号)|(引脚号)（如：(PORTB)|(5) 表示为B口5号脚）
@@ -221,25 +231,25 @@ E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/.
 //===========================================================================
 void light_change(uint_16 port_pin)
 {
- 864:	b580      	push	{r7, lr}
- 866:	b082      	sub	sp, #8
- 868:	af00      	add	r7, sp, #0
- 86a:	1c02      	adds	r2, r0, #0
- 86c:	1dbb      	adds	r3, r7, #6
- 86e:	801a      	strh	r2, [r3, #0]
+ 878:	b580      	push	{r7, lr}
+ 87a:	b082      	sub	sp, #8
+ 87c:	af00      	add	r7, sp, #0
+ 87e:	1c02      	adds	r2, r0, #0
+ 880:	1dbb      	adds	r3, r7, #6
+ 882:	801a      	strh	r2, [r3, #0]
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../06_App_Component/light/light.c:42
     gpio_reverse(port_pin);
- 870:	1dbb      	adds	r3, r7, #6
- 872:	881b      	ldrh	r3, [r3, #0]
- 874:	1c18      	adds	r0, r3, #0
- 876:	f000 f8d1 	bl	a1c <gpio_reverse>
+ 884:	1dbb      	adds	r3, r7, #6
+ 886:	881b      	ldrh	r3, [r3, #0]
+ 888:	1c18      	adds	r0, r3, #0
+ 88a:	f000 f8d1 	bl	a30 <gpio_reverse>
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../06_App_Component/light/light.c:43
 }
- 87a:	46bd      	mov	sp, r7
- 87c:	b002      	add	sp, #8
- 87e:	bd80      	pop	{r7, pc}
+ 88e:	46bd      	mov	sp, r7
+ 890:	b002      	add	sp, #8
+ 892:	bd80      	pop	{r7, pc}
 
-00000880 <gpio_port_pin_resolution>:
+00000894 <gpio_port_pin_resolution>:
 gpio_port_pin_resolution():
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../05_Driver/gpio/gpio.c:27
 //	    pin:引脚号（0~31，实际取值由芯片的物理引脚决定）
@@ -248,40 +258,40 @@ E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/.
 //===========================================================================
 static void gpio_port_pin_resolution(uint_16 port_pin,uint_8* port,uint_8* pin)
 {
- 880:	b580      	push	{r7, lr}
- 882:	b084      	sub	sp, #16
- 884:	af00      	add	r7, sp, #0
- 886:	60b9      	str	r1, [r7, #8]
- 888:	607a      	str	r2, [r7, #4]
- 88a:	1c3b      	adds	r3, r7, #0
- 88c:	330e      	adds	r3, #14
- 88e:	1c02      	adds	r2, r0, #0
- 890:	801a      	strh	r2, [r3, #0]
+ 894:	b580      	push	{r7, lr}
+ 896:	b084      	sub	sp, #16
+ 898:	af00      	add	r7, sp, #0
+ 89a:	60b9      	str	r1, [r7, #8]
+ 89c:	607a      	str	r2, [r7, #4]
+ 89e:	1c3b      	adds	r3, r7, #0
+ 8a0:	330e      	adds	r3, #14
+ 8a2:	1c02      	adds	r2, r0, #0
+ 8a4:	801a      	strh	r2, [r3, #0]
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../05_Driver/gpio/gpio.c:28
     *port = port_pin>>8;   //右移8位，得到端口号
- 892:	1c3b      	adds	r3, r7, #0
- 894:	330e      	adds	r3, #14
- 896:	881b      	ldrh	r3, [r3, #0]
- 898:	0a1b      	lsrs	r3, r3, #8
- 89a:	b29b      	uxth	r3, r3
- 89c:	b2da      	uxtb	r2, r3
- 89e:	68bb      	ldr	r3, [r7, #8]
- 8a0:	701a      	strb	r2, [r3, #0]
+ 8a6:	1c3b      	adds	r3, r7, #0
+ 8a8:	330e      	adds	r3, #14
+ 8aa:	881b      	ldrh	r3, [r3, #0]
+ 8ac:	0a1b      	lsrs	r3, r3, #8
+ 8ae:	b29b      	uxth	r3, r3
+ 8b0:	b2da      	uxtb	r2, r3
+ 8b2:	68bb      	ldr	r3, [r7, #8]
+ 8b4:	701a      	strb	r2, [r3, #0]
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../05_Driver/gpio/gpio.c:29
     * pin = port_pin;
- 8a2:	1c3b      	adds	r3, r7, #0
- 8a4:	330e      	adds	r3, #14
- 8a6:	881b      	ldrh	r3, [r3, #0]
- 8a8:	b2da      	uxtb	r2, r3
- 8aa:	687b      	ldr	r3, [r7, #4]
- 8ac:	701a      	strb	r2, [r3, #0]
+ 8b6:	1c3b      	adds	r3, r7, #0
+ 8b8:	330e      	adds	r3, #14
+ 8ba:	881b      	ldrh	r3, [r3, #0]
+ 8bc:	b2da      	uxtb	r2, r3
+ 8be:	687b      	ldr	r3, [r7, #4]
+ 8c0:	701a      	strb	r2, [r3, #0]
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../05_Driver/gpio/gpio.c:30
 }
- 8ae:	46bd      	mov	sp, r7
- 8b0:	b004      	add	sp, #16
- 8b2:	bd80      	pop	{r7, pc}
+ 8c2:	46bd      	mov	sp, r7
+ 8c4:	b004      	add	sp, #16
+ 8c6:	bd80      	pop	{r7, pc}
 
-000008b4 <gpio_init>:
+000008c8 <gpio_init>:
 gpio_init():
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../05_Driver/gpio/gpio.c:46
 //          state：端口引脚初始状态（0=低电平，1=高电平）
@@ -290,15 +300,15 @@ E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/.
 //===========================================================================
 void gpio_init(uint_16 port_pin, uint_8 dir, uint_8 state)
 {
- 8b4:	b580      	push	{r7, lr}
- 8b6:	b086      	sub	sp, #24
- 8b8:	af00      	add	r7, sp, #0
- 8ba:	1dbb      	adds	r3, r7, #6
- 8bc:	8018      	strh	r0, [r3, #0]
- 8be:	1d7b      	adds	r3, r7, #5
- 8c0:	7019      	strb	r1, [r3, #0]
- 8c2:	1d3b      	adds	r3, r7, #4
- 8c4:	701a      	strb	r2, [r3, #0]
+ 8c8:	b580      	push	{r7, lr}
+ 8ca:	b086      	sub	sp, #24
+ 8cc:	af00      	add	r7, sp, #0
+ 8ce:	1dbb      	adds	r3, r7, #6
+ 8d0:	8018      	strh	r0, [r3, #0]
+ 8d2:	1d7b      	adds	r3, r7, #5
+ 8d4:	7019      	strb	r1, [r3, #0]
+ 8d6:	1d3b      	adds	r3, r7, #4
+ 8d8:	701a      	strb	r2, [r3, #0]
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../05_Driver/gpio/gpio.c:53
     PORT_MemMapPtr port_ptr;    //声明port_ptr为PORT结构体类型指针 
     GPIO_MemMapPtr gpio_ptr;    //声明port_ptr为GPIO结构体类型指针
@@ -306,137 +316,137 @@ E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/.
     uint_8 pin;                 //引脚号
     //获得端口号与引脚号，分别赋给port、pin
     gpio_port_pin_resolution(port_pin , &port , &pin);
- 8c6:	1dbb      	adds	r3, r7, #6
- 8c8:	8819      	ldrh	r1, [r3, #0]
- 8ca:	1c3a      	adds	r2, r7, #0
- 8cc:	320f      	adds	r2, #15
- 8ce:	1c3b      	adds	r3, r7, #0
- 8d0:	330e      	adds	r3, #14
- 8d2:	1c08      	adds	r0, r1, #0
- 8d4:	1c11      	adds	r1, r2, #0
- 8d6:	1c1a      	adds	r2, r3, #0
- 8d8:	f7ff ffd2 	bl	880 <gpio_port_pin_resolution>
+ 8da:	1dbb      	adds	r3, r7, #6
+ 8dc:	8819      	ldrh	r1, [r3, #0]
+ 8de:	1c3a      	adds	r2, r7, #0
+ 8e0:	320f      	adds	r2, #15
+ 8e2:	1c3b      	adds	r3, r7, #0
+ 8e4:	330e      	adds	r3, #14
+ 8e6:	1c08      	adds	r0, r1, #0
+ 8e8:	1c11      	adds	r1, r2, #0
+ 8ea:	1c1a      	adds	r2, r3, #0
+ 8ec:	f7ff ffd2 	bl	894 <gpio_port_pin_resolution>
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../05_Driver/gpio/gpio.c:56
 		
     //根据端口号port，给局部变量port_ptr、gpio_ptr赋值(获得两个基地址)
     port_ptr = PORT_ARR[port];  //获得PORT模块相应口基地址
- 8dc:	1c3b      	adds	r3, r7, #0
- 8de:	330f      	adds	r3, #15
- 8e0:	781b      	ldrb	r3, [r3, #0]
- 8e2:	1c1a      	adds	r2, r3, #0
- 8e4:	4b2a      	ldr	r3, [pc, #168]	; (990 <gpio_init+0xdc>)
- 8e6:	0092      	lsls	r2, r2, #2
- 8e8:	58d3      	ldr	r3, [r2, r3]
- 8ea:	617b      	str	r3, [r7, #20]
+ 8f0:	1c3b      	adds	r3, r7, #0
+ 8f2:	330f      	adds	r3, #15
+ 8f4:	781b      	ldrb	r3, [r3, #0]
+ 8f6:	1c1a      	adds	r2, r3, #0
+ 8f8:	4b2a      	ldr	r3, [pc, #168]	; (9a4 <gpio_init+0xdc>)
+ 8fa:	0092      	lsls	r2, r2, #2
+ 8fc:	58d3      	ldr	r3, [r2, r3]
+ 8fe:	617b      	str	r3, [r7, #20]
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../05_Driver/gpio/gpio.c:57
     gpio_ptr = GPIO_ARR[port];  //获得GPIO模块相应口基地址
- 8ec:	1c3b      	adds	r3, r7, #0
- 8ee:	330f      	adds	r3, #15
- 8f0:	781b      	ldrb	r3, [r3, #0]
- 8f2:	1c1a      	adds	r2, r3, #0
- 8f4:	4b27      	ldr	r3, [pc, #156]	; (994 <gpio_init+0xe0>)
- 8f6:	0092      	lsls	r2, r2, #2
- 8f8:	58d3      	ldr	r3, [r2, r3]
- 8fa:	613b      	str	r3, [r7, #16]
+ 900:	1c3b      	adds	r3, r7, #0
+ 902:	330f      	adds	r3, #15
+ 904:	781b      	ldrb	r3, [r3, #0]
+ 906:	1c1a      	adds	r2, r3, #0
+ 908:	4b27      	ldr	r3, [pc, #156]	; (9a8 <gpio_init+0xe0>)
+ 90a:	0092      	lsls	r2, r2, #2
+ 90c:	58d3      	ldr	r3, [r2, r3]
+ 90e:	613b      	str	r3, [r7, #16]
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../05_Driver/gpio/gpio.c:60
 	
     //根据引脚号pin,指定该引脚功能为GPIO功能(即令引脚控制寄存器的MUX=0b001)
     port_ptr->PCR[pin] &= ~PORT_PCR_MUX_MASK;   //先令MUX=0b000
- 8fc:	1c3b      	adds	r3, r7, #0
- 8fe:	330e      	adds	r3, #14
- 900:	781b      	ldrb	r3, [r3, #0]
- 902:	1c1a      	adds	r2, r3, #0
- 904:	1c3b      	adds	r3, r7, #0
- 906:	330e      	adds	r3, #14
- 908:	781b      	ldrb	r3, [r3, #0]
- 90a:	1c19      	adds	r1, r3, #0
- 90c:	697b      	ldr	r3, [r7, #20]
- 90e:	0089      	lsls	r1, r1, #2
- 910:	58c9      	ldr	r1, [r1, r3]
- 912:	4b21      	ldr	r3, [pc, #132]	; (998 <gpio_init+0xe4>)
- 914:	4019      	ands	r1, r3
- 916:	697b      	ldr	r3, [r7, #20]
- 918:	0092      	lsls	r2, r2, #2
- 91a:	50d1      	str	r1, [r2, r3]
+ 910:	1c3b      	adds	r3, r7, #0
+ 912:	330e      	adds	r3, #14
+ 914:	781b      	ldrb	r3, [r3, #0]
+ 916:	1c1a      	adds	r2, r3, #0
+ 918:	1c3b      	adds	r3, r7, #0
+ 91a:	330e      	adds	r3, #14
+ 91c:	781b      	ldrb	r3, [r3, #0]
+ 91e:	1c19      	adds	r1, r3, #0
+ 920:	697b      	ldr	r3, [r7, #20]
+ 922:	0089      	lsls	r1, r1, #2
+ 924:	58c9      	ldr	r1, [r1, r3]
+ 926:	4b21      	ldr	r3, [pc, #132]	; (9ac <gpio_init+0xe4>)
+ 928:	4019      	ands	r1, r3
+ 92a:	697b      	ldr	r3, [r7, #20]
+ 92c:	0092      	lsls	r2, r2, #2
+ 92e:	50d1      	str	r1, [r2, r3]
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../05_Driver/gpio/gpio.c:61
     port_ptr->PCR[pin] |= PORT_PCR_MUX(1);      //再令MUX=0b001
- 91c:	1c3b      	adds	r3, r7, #0
- 91e:	330e      	adds	r3, #14
- 920:	781b      	ldrb	r3, [r3, #0]
- 922:	1c1a      	adds	r2, r3, #0
- 924:	1c3b      	adds	r3, r7, #0
- 926:	330e      	adds	r3, #14
- 928:	781b      	ldrb	r3, [r3, #0]
- 92a:	1c19      	adds	r1, r3, #0
- 92c:	697b      	ldr	r3, [r7, #20]
- 92e:	0089      	lsls	r1, r1, #2
- 930:	58cb      	ldr	r3, [r1, r3]
- 932:	2180      	movs	r1, #128	; 0x80
- 934:	0049      	lsls	r1, r1, #1
- 936:	4319      	orrs	r1, r3
- 938:	697b      	ldr	r3, [r7, #20]
- 93a:	0092      	lsls	r2, r2, #2
- 93c:	50d1      	str	r1, [r2, r3]
+ 930:	1c3b      	adds	r3, r7, #0
+ 932:	330e      	adds	r3, #14
+ 934:	781b      	ldrb	r3, [r3, #0]
+ 936:	1c1a      	adds	r2, r3, #0
+ 938:	1c3b      	adds	r3, r7, #0
+ 93a:	330e      	adds	r3, #14
+ 93c:	781b      	ldrb	r3, [r3, #0]
+ 93e:	1c19      	adds	r1, r3, #0
+ 940:	697b      	ldr	r3, [r7, #20]
+ 942:	0089      	lsls	r1, r1, #2
+ 944:	58cb      	ldr	r3, [r1, r3]
+ 946:	2180      	movs	r1, #128	; 0x80
+ 948:	0049      	lsls	r1, r1, #1
+ 94a:	4319      	orrs	r1, r3
+ 94c:	697b      	ldr	r3, [r7, #20]
+ 94e:	0092      	lsls	r2, r2, #2
+ 950:	50d1      	str	r1, [r2, r3]
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../05_Driver/gpio/gpio.c:64
     
     //根据带入参数dir，决定引脚为输出还是输入
     if (1 == dir)   //希望为输出
- 93e:	1d7b      	adds	r3, r7, #5
- 940:	781b      	ldrb	r3, [r3, #0]
- 942:	2b01      	cmp	r3, #1
- 944:	d114      	bne.n	970 <gpio_init+0xbc>
+ 952:	1d7b      	adds	r3, r7, #5
+ 954:	781b      	ldrb	r3, [r3, #0]
+ 956:	2b01      	cmp	r3, #1
+ 958:	d114      	bne.n	984 <gpio_init+0xbc>
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../05_Driver/gpio/gpio.c:66
        {
          BSET(pin,gpio_ptr->PDDR);   //数据方向寄存器的pin位=1，定义为输出
- 946:	693b      	ldr	r3, [r7, #16]
- 948:	695a      	ldr	r2, [r3, #20]
- 94a:	1c3b      	adds	r3, r7, #0
- 94c:	330e      	adds	r3, #14
- 94e:	781b      	ldrb	r3, [r3, #0]
- 950:	2101      	movs	r1, #1
- 952:	1c08      	adds	r0, r1, #0
- 954:	4098      	lsls	r0, r3
- 956:	1c03      	adds	r3, r0, #0
- 958:	431a      	orrs	r2, r3
  95a:	693b      	ldr	r3, [r7, #16]
- 95c:	615a      	str	r2, [r3, #20]
+ 95c:	695a      	ldr	r2, [r3, #20]
+ 95e:	1c3b      	adds	r3, r7, #0
+ 960:	330e      	adds	r3, #14
+ 962:	781b      	ldrb	r3, [r3, #0]
+ 964:	2101      	movs	r1, #1
+ 966:	1c08      	adds	r0, r1, #0
+ 968:	4098      	lsls	r0, r3
+ 96a:	1c03      	adds	r3, r0, #0
+ 96c:	431a      	orrs	r2, r3
+ 96e:	693b      	ldr	r3, [r7, #16]
+ 970:	615a      	str	r2, [r3, #20]
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../05_Driver/gpio/gpio.c:67
          gpio_set(port_pin, state);  //调用gpio_set函数，设定引脚初始状态
- 95e:	1dbb      	adds	r3, r7, #6
- 960:	881a      	ldrh	r2, [r3, #0]
- 962:	1d3b      	adds	r3, r7, #4
- 964:	781b      	ldrb	r3, [r3, #0]
- 966:	1c10      	adds	r0, r2, #0
- 968:	1c19      	adds	r1, r3, #0
- 96a:	f000 f817 	bl	99c <gpio_set>
- 96e:	e00c      	b.n	98a <gpio_init+0xd6>
+ 972:	1dbb      	adds	r3, r7, #6
+ 974:	881a      	ldrh	r2, [r3, #0]
+ 976:	1d3b      	adds	r3, r7, #4
+ 978:	781b      	ldrb	r3, [r3, #0]
+ 97a:	1c10      	adds	r0, r2, #0
+ 97c:	1c19      	adds	r1, r3, #0
+ 97e:	f000 f817 	bl	9b0 <gpio_set>
+ 982:	e00c      	b.n	99e <gpio_init+0xd6>
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../05_Driver/gpio/gpio.c:70
        }
        else         //希望为输入 ， PDDR为数据方向寄存器
        BCLR(pin,gpio_ptr->PDDR);    //数据方向寄存器的pin位=0，定义为输入
- 970:	693b      	ldr	r3, [r7, #16]
- 972:	695b      	ldr	r3, [r3, #20]
- 974:	1c3a      	adds	r2, r7, #0
- 976:	320e      	adds	r2, #14
- 978:	7812      	ldrb	r2, [r2, #0]
- 97a:	2101      	movs	r1, #1
- 97c:	1c08      	adds	r0, r1, #0
- 97e:	4090      	lsls	r0, r2
- 980:	1c02      	adds	r2, r0, #0
- 982:	43d2      	mvns	r2, r2
- 984:	401a      	ands	r2, r3
- 986:	693b      	ldr	r3, [r7, #16]
- 988:	615a      	str	r2, [r3, #20]
+ 984:	693b      	ldr	r3, [r7, #16]
+ 986:	695b      	ldr	r3, [r3, #20]
+ 988:	1c3a      	adds	r2, r7, #0
+ 98a:	320e      	adds	r2, #14
+ 98c:	7812      	ldrb	r2, [r2, #0]
+ 98e:	2101      	movs	r1, #1
+ 990:	1c08      	adds	r0, r1, #0
+ 992:	4090      	lsls	r0, r2
+ 994:	1c02      	adds	r2, r0, #0
+ 996:	43d2      	mvns	r2, r2
+ 998:	401a      	ands	r2, r3
+ 99a:	693b      	ldr	r3, [r7, #16]
+ 99c:	615a      	str	r2, [r3, #20]
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../05_Driver/gpio/gpio.c:71
 }
- 98a:	46bd      	mov	sp, r7
- 98c:	b006      	add	sp, #24
- 98e:	bd80      	pop	{r7, pc}
- 990:	00000d20 	.word	0x00000d20
- 994:	00000d34 	.word	0x00000d34
- 998:	fffff8ff 	.word	0xfffff8ff
+ 99e:	46bd      	mov	sp, r7
+ 9a0:	b006      	add	sp, #24
+ 9a2:	bd80      	pop	{r7, pc}
+ 9a4:	00000d34 	.word	0x00000d34
+ 9a8:	00000d48 	.word	0x00000d48
+ 9ac:	fffff8ff 	.word	0xfffff8ff
 
-0000099c <gpio_set>:
+000009b0 <gpio_set>:
 gpio_set():
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../05_Driver/gpio/gpio.c:81
 //参数说明：port_pin：端口号|引脚号（例：PORTB|(5) 表示为B口5号脚）
@@ -445,90 +455,90 @@ E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/.
 //===========================================================================
 void gpio_set(uint_16 port_pin, uint_8 state)
 {
- 99c:	b580      	push	{r7, lr}
- 99e:	b084      	sub	sp, #16
- 9a0:	af00      	add	r7, sp, #0
- 9a2:	1c0a      	adds	r2, r1, #0
- 9a4:	1dbb      	adds	r3, r7, #6
- 9a6:	1c01      	adds	r1, r0, #0
- 9a8:	8019      	strh	r1, [r3, #0]
- 9aa:	1d7b      	adds	r3, r7, #5
- 9ac:	701a      	strb	r2, [r3, #0]
+ 9b0:	b580      	push	{r7, lr}
+ 9b2:	b084      	sub	sp, #16
+ 9b4:	af00      	add	r7, sp, #0
+ 9b6:	1c0a      	adds	r2, r1, #0
+ 9b8:	1dbb      	adds	r3, r7, #6
+ 9ba:	1c01      	adds	r1, r0, #0
+ 9bc:	8019      	strh	r1, [r3, #0]
+ 9be:	1d7b      	adds	r3, r7, #5
+ 9c0:	701a      	strb	r2, [r3, #0]
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../05_Driver/gpio/gpio.c:85
     GPIO_MemMapPtr gpio_ptr;    //声明port_ptr为GPIO结构体类型指针
     uint_8 port;
     uint_8 pin;
     gpio_port_pin_resolution(port_pin , &port , &pin);
- 9ae:	1dbb      	adds	r3, r7, #6
- 9b0:	8819      	ldrh	r1, [r3, #0]
- 9b2:	1c3a      	adds	r2, r7, #0
- 9b4:	320b      	adds	r2, #11
- 9b6:	1c3b      	adds	r3, r7, #0
- 9b8:	330a      	adds	r3, #10
- 9ba:	1c08      	adds	r0, r1, #0
- 9bc:	1c11      	adds	r1, r2, #0
- 9be:	1c1a      	adds	r2, r3, #0
- 9c0:	f7ff ff5e 	bl	880 <gpio_port_pin_resolution>
+ 9c2:	1dbb      	adds	r3, r7, #6
+ 9c4:	8819      	ldrh	r1, [r3, #0]
+ 9c6:	1c3a      	adds	r2, r7, #0
+ 9c8:	320b      	adds	r2, #11
+ 9ca:	1c3b      	adds	r3, r7, #0
+ 9cc:	330a      	adds	r3, #10
+ 9ce:	1c08      	adds	r0, r1, #0
+ 9d0:	1c11      	adds	r1, r2, #0
+ 9d2:	1c1a      	adds	r2, r3, #0
+ 9d4:	f7ff ff5e 	bl	894 <gpio_port_pin_resolution>
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../05_Driver/gpio/gpio.c:88
 	
     //根据带入参数port，给局部变量gpio_ptr赋值（GPIO基地址）
     gpio_ptr = GPIO_ARR[port]; 
- 9c4:	1c3b      	adds	r3, r7, #0
- 9c6:	330b      	adds	r3, #11
- 9c8:	781b      	ldrb	r3, [r3, #0]
- 9ca:	1c1a      	adds	r2, r3, #0
- 9cc:	4b12      	ldr	r3, [pc, #72]	; (a18 <gpio_set+0x7c>)
- 9ce:	0092      	lsls	r2, r2, #2
- 9d0:	58d3      	ldr	r3, [r2, r3]
- 9d2:	60fb      	str	r3, [r7, #12]
+ 9d8:	1c3b      	adds	r3, r7, #0
+ 9da:	330b      	adds	r3, #11
+ 9dc:	781b      	ldrb	r3, [r3, #0]
+ 9de:	1c1a      	adds	r2, r3, #0
+ 9e0:	4b12      	ldr	r3, [pc, #72]	; (a2c <gpio_set+0x7c>)
+ 9e2:	0092      	lsls	r2, r2, #2
+ 9e4:	58d3      	ldr	r3, [r2, r3]
+ 9e6:	60fb      	str	r3, [r7, #12]
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../05_Driver/gpio/gpio.c:91
 	
     //根据带入参数state，决定引脚为输出1还是0
     if (1==state)
- 9d4:	1d7b      	adds	r3, r7, #5
- 9d6:	781b      	ldrb	r3, [r3, #0]
- 9d8:	2b01      	cmp	r3, #1
- 9da:	d10c      	bne.n	9f6 <gpio_set+0x5a>
+ 9e8:	1d7b      	adds	r3, r7, #5
+ 9ea:	781b      	ldrb	r3, [r3, #0]
+ 9ec:	2b01      	cmp	r3, #1
+ 9ee:	d10c      	bne.n	a0a <gpio_set+0x5a>
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../05_Driver/gpio/gpio.c:92
         {BSET(pin,gpio_ptr->PDOR);} //定义引脚输出时高电平
- 9dc:	68fb      	ldr	r3, [r7, #12]
- 9de:	681a      	ldr	r2, [r3, #0]
- 9e0:	1c3b      	adds	r3, r7, #0
- 9e2:	330a      	adds	r3, #10
- 9e4:	781b      	ldrb	r3, [r3, #0]
- 9e6:	2101      	movs	r1, #1
- 9e8:	1c08      	adds	r0, r1, #0
- 9ea:	4098      	lsls	r0, r3
- 9ec:	1c03      	adds	r3, r0, #0
- 9ee:	431a      	orrs	r2, r3
  9f0:	68fb      	ldr	r3, [r7, #12]
- 9f2:	601a      	str	r2, [r3, #0]
- 9f4:	e00c      	b.n	a10 <gpio_set+0x74>
+ 9f2:	681a      	ldr	r2, [r3, #0]
+ 9f4:	1c3b      	adds	r3, r7, #0
+ 9f6:	330a      	adds	r3, #10
+ 9f8:	781b      	ldrb	r3, [r3, #0]
+ 9fa:	2101      	movs	r1, #1
+ 9fc:	1c08      	adds	r0, r1, #0
+ 9fe:	4098      	lsls	r0, r3
+ a00:	1c03      	adds	r3, r0, #0
+ a02:	431a      	orrs	r2, r3
+ a04:	68fb      	ldr	r3, [r7, #12]
+ a06:	601a      	str	r2, [r3, #0]
+ a08:	e00c      	b.n	a24 <gpio_set+0x74>
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../05_Driver/gpio/gpio.c:94
     else
 	{BCLR(pin,gpio_ptr->PDOR);}   //定义引脚输出为低电平
- 9f6:	68fb      	ldr	r3, [r7, #12]
- 9f8:	681b      	ldr	r3, [r3, #0]
- 9fa:	1c3a      	adds	r2, r7, #0
- 9fc:	320a      	adds	r2, #10
- 9fe:	7812      	ldrb	r2, [r2, #0]
- a00:	2101      	movs	r1, #1
- a02:	1c08      	adds	r0, r1, #0
- a04:	4090      	lsls	r0, r2
- a06:	1c02      	adds	r2, r0, #0
- a08:	43d2      	mvns	r2, r2
- a0a:	401a      	ands	r2, r3
- a0c:	68fb      	ldr	r3, [r7, #12]
- a0e:	601a      	str	r2, [r3, #0]
+ a0a:	68fb      	ldr	r3, [r7, #12]
+ a0c:	681b      	ldr	r3, [r3, #0]
+ a0e:	1c3a      	adds	r2, r7, #0
+ a10:	320a      	adds	r2, #10
+ a12:	7812      	ldrb	r2, [r2, #0]
+ a14:	2101      	movs	r1, #1
+ a16:	1c08      	adds	r0, r1, #0
+ a18:	4090      	lsls	r0, r2
+ a1a:	1c02      	adds	r2, r0, #0
+ a1c:	43d2      	mvns	r2, r2
+ a1e:	401a      	ands	r2, r3
+ a20:	68fb      	ldr	r3, [r7, #12]
+ a22:	601a      	str	r2, [r3, #0]
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../05_Driver/gpio/gpio.c:95
 }
- a10:	46bd      	mov	sp, r7
- a12:	b004      	add	sp, #16
- a14:	bd80      	pop	{r7, pc}
- a16:	46c0      	nop			; (mov r8, r8)
- a18:	00000d34 	.word	0x00000d34
+ a24:	46bd      	mov	sp, r7
+ a26:	b004      	add	sp, #16
+ a28:	bd80      	pop	{r7, pc}
+ a2a:	46c0      	nop			; (mov r8, r8)
+ a2c:	00000d48 	.word	0x00000d48
 
-00000a1c <gpio_reverse>:
+00000a30 <gpio_reverse>:
 gpio_reverse():
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../05_Driver/gpio/gpio.c:124
 //函数返回：无
@@ -537,63 +547,63 @@ E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/.
 //===========================================================================
 void gpio_reverse(uint_16 port_pin)
 {
- a1c:	b580      	push	{r7, lr}
- a1e:	b084      	sub	sp, #16
- a20:	af00      	add	r7, sp, #0
- a22:	1c02      	adds	r2, r0, #0
- a24:	1dbb      	adds	r3, r7, #6
- a26:	801a      	strh	r2, [r3, #0]
+ a30:	b580      	push	{r7, lr}
+ a32:	b084      	sub	sp, #16
+ a34:	af00      	add	r7, sp, #0
+ a36:	1c02      	adds	r2, r0, #0
+ a38:	1dbb      	adds	r3, r7, #6
+ a3a:	801a      	strh	r2, [r3, #0]
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../05_Driver/gpio/gpio.c:128
     GPIO_MemMapPtr gpio_ptr;    //声明port_ptr为GPIO结构体类型指针（首地址）
     uint_8 port;
     uint_8 pin;
     gpio_port_pin_resolution(port_pin , &port , &pin);
- a28:	1dbb      	adds	r3, r7, #6
- a2a:	8819      	ldrh	r1, [r3, #0]
- a2c:	1c3a      	adds	r2, r7, #0
- a2e:	320b      	adds	r2, #11
- a30:	1c3b      	adds	r3, r7, #0
- a32:	330a      	adds	r3, #10
- a34:	1c08      	adds	r0, r1, #0
- a36:	1c11      	adds	r1, r2, #0
- a38:	1c1a      	adds	r2, r3, #0
- a3a:	f7ff ff21 	bl	880 <gpio_port_pin_resolution>
+ a3c:	1dbb      	adds	r3, r7, #6
+ a3e:	8819      	ldrh	r1, [r3, #0]
+ a40:	1c3a      	adds	r2, r7, #0
+ a42:	320b      	adds	r2, #11
+ a44:	1c3b      	adds	r3, r7, #0
+ a46:	330a      	adds	r3, #10
+ a48:	1c08      	adds	r0, r1, #0
+ a4a:	1c11      	adds	r1, r2, #0
+ a4c:	1c1a      	adds	r2, r3, #0
+ a4e:	f7ff ff21 	bl	894 <gpio_port_pin_resolution>
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../05_Driver/gpio/gpio.c:131
 	
     //根据带入参数port，给局部变量port_ptr赋值（GPIO基地址）
     gpio_ptr = GPIO_ARR[port]; 
- a3e:	1c3b      	adds	r3, r7, #0
- a40:	330b      	adds	r3, #11
- a42:	781b      	ldrb	r3, [r3, #0]
- a44:	1c1a      	adds	r2, r3, #0
- a46:	4b09      	ldr	r3, [pc, #36]	; (a6c <gpio_reverse+0x50>)
- a48:	0092      	lsls	r2, r2, #2
- a4a:	58d3      	ldr	r3, [r2, r3]
- a4c:	60fb      	str	r3, [r7, #12]
+ a52:	1c3b      	adds	r3, r7, #0
+ a54:	330b      	adds	r3, #11
+ a56:	781b      	ldrb	r3, [r3, #0]
+ a58:	1c1a      	adds	r2, r3, #0
+ a5a:	4b09      	ldr	r3, [pc, #36]	; (a80 <gpio_reverse+0x50>)
+ a5c:	0092      	lsls	r2, r2, #2
+ a5e:	58d3      	ldr	r3, [r2, r3]
+ a60:	60fb      	str	r3, [r7, #12]
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../05_Driver/gpio/gpio.c:134
 	
 	//反转指定引脚输出状态
     BSET(pin,gpio_ptr->PTOR);
- a4e:	68fb      	ldr	r3, [r7, #12]
- a50:	68da      	ldr	r2, [r3, #12]
- a52:	1c3b      	adds	r3, r7, #0
- a54:	330a      	adds	r3, #10
- a56:	781b      	ldrb	r3, [r3, #0]
- a58:	2101      	movs	r1, #1
- a5a:	1c08      	adds	r0, r1, #0
- a5c:	4098      	lsls	r0, r3
- a5e:	1c03      	adds	r3, r0, #0
- a60:	431a      	orrs	r2, r3
  a62:	68fb      	ldr	r3, [r7, #12]
- a64:	60da      	str	r2, [r3, #12]
+ a64:	68da      	ldr	r2, [r3, #12]
+ a66:	1c3b      	adds	r3, r7, #0
+ a68:	330a      	adds	r3, #10
+ a6a:	781b      	ldrb	r3, [r3, #0]
+ a6c:	2101      	movs	r1, #1
+ a6e:	1c08      	adds	r0, r1, #0
+ a70:	4098      	lsls	r0, r3
+ a72:	1c03      	adds	r3, r0, #0
+ a74:	431a      	orrs	r2, r3
+ a76:	68fb      	ldr	r3, [r7, #12]
+ a78:	60da      	str	r2, [r3, #12]
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../05_Driver/gpio/gpio.c:135
 }
- a66:	46bd      	mov	sp, r7
- a68:	b004      	add	sp, #16
- a6a:	bd80      	pop	{r7, pc}
- a6c:	00000d34 	.word	0x00000d34
+ a7a:	46bd      	mov	sp, r7
+ a7c:	b004      	add	sp, #16
+ a7e:	bd80      	pop	{r7, pc}
+ a80:	00000d48 	.word	0x00000d48
 
-00000a70 <startup>:
+00000a84 <startup>:
 startup():
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/startup.c:22
 #define WDOG_ENABLE() {SIM_COPC |= SIM_COPC_COPT_MASK;} //使能看门狗
@@ -602,40 +612,40 @@ E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/.
 // 系统上电启动程序
  void startup(void)
 {
- a70:	b580      	push	{r7, lr}
- a72:	af00      	add	r7, sp, #0
+ a84:	b580      	push	{r7, lr}
+ a86:	af00      	add	r7, sp, #0
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/startup.c:23
 	 WDOG_DISABLE();       //禁用看门狗
- a74:	4a08      	ldr	r2, [pc, #32]	; (a98 <startup+0x28>)
- a76:	2388      	movs	r3, #136	; 0x88
- a78:	015b      	lsls	r3, r3, #5
- a7a:	2100      	movs	r1, #0
- a7c:	50d1      	str	r1, [r2, r3]
+ a88:	4a08      	ldr	r2, [pc, #32]	; (aac <startup+0x28>)
+ a8a:	2388      	movs	r3, #136	; 0x88
+ a8c:	015b      	lsls	r3, r3, #5
+ a8e:	2100      	movs	r1, #0
+ a90:	50d1      	str	r1, [r2, r3]
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/startup.c:25
         //WDOG_ENABLE();        使能看门狗  
 	vector_init();          //复制中断向量表至RAM
- a7e:	f000 f80d 	bl	a9c <vector_init>
+ a92:	f000 f80d 	bl	ab0 <vector_init>
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/startup.c:26
 	m_zero_fill_bss ();     //清零未初始化BSS数据段
- a82:	f000 f835 	bl	af0 <m_zero_fill_bss>
+ a96:	f000 f835 	bl	b04 <m_zero_fill_bss>
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/startup.c:27
 	m_data_seg_init ();     //将ROM中的初始化数据拷贝到RAM中
- a86:	f000 f851 	bl	b2c <m_data_seg_init>
+ a9a:	f000 f851 	bl	b40 <m_data_seg_init>
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/startup.c:28
 	sys_init();             //初始化系统时钟
- a8a:	f000 f885 	bl	b98 <sys_init>
+ a9e:	f000 f885 	bl	bac <sys_init>
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/startup.c:29
 	sys_pin_enable_port();  //使能端口时钟
- a8e:	f000 f871 	bl	b74 <sys_pin_enable_port>
+ aa2:	f000 f871 	bl	b88 <sys_pin_enable_port>
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/startup.c:30
 	main();                 //进入主函数
- a92:	f7ff feb5 	bl	800 <main>
+ aa6:	f7ff feab 	bl	800 <main>
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/startup.c:31 (discriminator 1)
 	while(1);               //永久循环（主函数内永久循环，含有执行不到该语句）          
- a96:	e7fe      	b.n	a96 <startup+0x26>
- a98:	40047000 	.word	0x40047000
+ aaa:	e7fe      	b.n	aaa <startup+0x26>
+ aac:	40047000 	.word	0x40047000
 
-00000a9c <vector_init>:
+00000ab0 <vector_init>:
 vector_init():
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/startup.c:38
 
@@ -644,35 +654,35 @@ E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/.
 //拷贝中断向量表
 void vector_init(void)
 {
- a9c:	b580      	push	{r7, lr}
- a9e:	b082      	sub	sp, #8
- aa0:	af00      	add	r7, sp, #0
+ ab0:	b580      	push	{r7, lr}
+ ab2:	b082      	sub	sp, #8
+ ab4:	af00      	add	r7, sp, #0
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/startup.c:43
 	extern char __VECTOR_RAM[];
 	extern char __vector_table[];
 	uint_32 n;
 	
 	if (__VECTOR_RAM != __vector_table)
- aa2:	4a0e      	ldr	r2, [pc, #56]	; (adc <vector_init+0x40>)
- aa4:	4b0e      	ldr	r3, [pc, #56]	; (ae0 <vector_init+0x44>)
- aa6:	429a      	cmp	r2, r3
- aa8:	d011      	beq.n	ace <vector_init+0x32>
+ ab6:	4a0e      	ldr	r2, [pc, #56]	; (af0 <vector_init+0x40>)
+ ab8:	4b0e      	ldr	r3, [pc, #56]	; (af4 <vector_init+0x44>)
+ aba:	429a      	cmp	r2, r3
+ abc:	d011      	beq.n	ae2 <vector_init+0x32>
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/startup.c:45
 	{
 	    for (n = 0; n < 0x410; n++)
- aaa:	2300      	movs	r3, #0
- aac:	607b      	str	r3, [r7, #4]
- aae:	e00a      	b.n	ac6 <vector_init+0x2a>
+ abe:	2300      	movs	r3, #0
+ ac0:	607b      	str	r3, [r7, #4]
+ ac2:	e00a      	b.n	ada <vector_init+0x2a>
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/startup.c:46 (discriminator 2)
 	        __VECTOR_RAM[n] = __vector_table[n];
- ab0:	4a0b      	ldr	r2, [pc, #44]	; (ae0 <vector_init+0x44>)
- ab2:	687b      	ldr	r3, [r7, #4]
- ab4:	18d3      	adds	r3, r2, r3
- ab6:	781a      	ldrb	r2, [r3, #0]
- ab8:	4908      	ldr	r1, [pc, #32]	; (adc <vector_init+0x40>)
- aba:	687b      	ldr	r3, [r7, #4]
- abc:	18cb      	adds	r3, r1, r3
- abe:	701a      	strb	r2, [r3, #0]
+ ac4:	4a0b      	ldr	r2, [pc, #44]	; (af4 <vector_init+0x44>)
+ ac6:	687b      	ldr	r3, [r7, #4]
+ ac8:	18d3      	adds	r3, r2, r3
+ aca:	781a      	ldrb	r2, [r3, #0]
+ acc:	4908      	ldr	r1, [pc, #32]	; (af0 <vector_init+0x40>)
+ ace:	687b      	ldr	r3, [r7, #4]
+ ad0:	18cb      	adds	r3, r1, r3
+ ad2:	701a      	strb	r2, [r3, #0]
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/startup.c:45 (discriminator 2)
 	extern char __vector_table[];
 	uint_32 n;
@@ -680,72 +690,72 @@ E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/.
 	if (__VECTOR_RAM != __vector_table)
 	{
 	    for (n = 0; n < 0x410; n++)
- ac0:	687b      	ldr	r3, [r7, #4]
- ac2:	3301      	adds	r3, #1
- ac4:	607b      	str	r3, [r7, #4]
+ ad4:	687b      	ldr	r3, [r7, #4]
+ ad6:	3301      	adds	r3, #1
+ ad8:	607b      	str	r3, [r7, #4]
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/startup.c:45 (discriminator 1)
- ac6:	687a      	ldr	r2, [r7, #4]
- ac8:	4b06      	ldr	r3, [pc, #24]	; (ae4 <vector_init+0x48>)
- aca:	429a      	cmp	r2, r3
- acc:	d9f0      	bls.n	ab0 <vector_init+0x14>
+ ada:	687a      	ldr	r2, [r7, #4]
+ adc:	4b06      	ldr	r3, [pc, #24]	; (af8 <vector_init+0x48>)
+ ade:	429a      	cmp	r2, r3
+ ae0:	d9f0      	bls.n	ac4 <vector_init+0x14>
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/startup.c:49
 	        __VECTOR_RAM[n] = __vector_table[n];
 	}
 	//Point the VTOR to the new copy of the vector table 
       SCB_VTOR=(uint_32)__VECTOR_RAM;
- ace:	4a06      	ldr	r2, [pc, #24]	; (ae8 <vector_init+0x4c>)
- ad0:	4902      	ldr	r1, [pc, #8]	; (adc <vector_init+0x40>)
- ad2:	4b06      	ldr	r3, [pc, #24]	; (aec <vector_init+0x50>)
- ad4:	50d1      	str	r1, [r2, r3]
+ ae2:	4a06      	ldr	r2, [pc, #24]	; (afc <vector_init+0x4c>)
+ ae4:	4902      	ldr	r1, [pc, #8]	; (af0 <vector_init+0x40>)
+ ae6:	4b06      	ldr	r3, [pc, #24]	; (b00 <vector_init+0x50>)
+ ae8:	50d1      	str	r1, [r2, r3]
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/startup.c:50
 }
- ad6:	46bd      	mov	sp, r7
- ad8:	b002      	add	sp, #8
- ada:	bd80      	pop	{r7, pc}
- adc:	1ffff000 	.word	0x1ffff000
- ae0:	00000000 	.word	0x00000000
- ae4:	0000040f 	.word	0x0000040f
- ae8:	e000e000 	.word	0xe000e000
- aec:	00000d08 	.word	0x00000d08
+ aea:	46bd      	mov	sp, r7
+ aec:	b002      	add	sp, #8
+ aee:	bd80      	pop	{r7, pc}
+ af0:	1ffff000 	.word	0x1ffff000
+ af4:	00000000 	.word	0x00000000
+ af8:	0000040f 	.word	0x0000040f
+ afc:	e000e000 	.word	0xe000e000
+ b00:	00000d08 	.word	0x00000d08
 
-00000af0 <m_zero_fill_bss>:
+00000b04 <m_zero_fill_bss>:
 m_zero_fill_bss():
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/startup.c:54
 
 // 初始化BSS段
 void m_zero_fill_bss(void)
 {
- af0:	b580      	push	{r7, lr}
- af2:	b084      	sub	sp, #16
- af4:	af00      	add	r7, sp, #0
+ b04:	b580      	push	{r7, lr}
+ b06:	b084      	sub	sp, #16
+ b08:	af00      	add	r7, sp, #0
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/startup.c:58
 	extern char __START_BSS[];
     extern char __END_BSS[];
 
     uint_8 *bss_start = (uint_8 *)__START_BSS;
- af6:	4b0b      	ldr	r3, [pc, #44]	; (b24 <m_zero_fill_bss+0x34>)
- af8:	60fb      	str	r3, [r7, #12]
+ b0a:	4b0b      	ldr	r3, [pc, #44]	; (b38 <m_zero_fill_bss+0x34>)
+ b0c:	60fb      	str	r3, [r7, #12]
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/startup.c:59
     uint_8 *bss_end   = (uint_8 *)__END_BSS;
- afa:	4b0b      	ldr	r3, [pc, #44]	; (b28 <m_zero_fill_bss+0x38>)
- afc:	607b      	str	r3, [r7, #4]
+ b0e:	4b0b      	ldr	r3, [pc, #44]	; (b3c <m_zero_fill_bss+0x38>)
+ b10:	607b      	str	r3, [r7, #4]
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/startup.c:60
     uint_32 n = bss_end - bss_start;
- afe:	687a      	ldr	r2, [r7, #4]
- b00:	68fb      	ldr	r3, [r7, #12]
- b02:	1ad3      	subs	r3, r2, r3
- b04:	60bb      	str	r3, [r7, #8]
+ b12:	687a      	ldr	r2, [r7, #4]
+ b14:	68fb      	ldr	r3, [r7, #12]
+ b16:	1ad3      	subs	r3, r2, r3
+ b18:	60bb      	str	r3, [r7, #8]
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/startup.c:62
     
     while (n--)
- b06:	e004      	b.n	b12 <m_zero_fill_bss+0x22>
+ b1a:	e004      	b.n	b26 <m_zero_fill_bss+0x22>
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/startup.c:63
     	*bss_start++ = 0;
- b08:	68fb      	ldr	r3, [r7, #12]
- b0a:	1c5a      	adds	r2, r3, #1
- b0c:	60fa      	str	r2, [r7, #12]
- b0e:	2200      	movs	r2, #0
- b10:	701a      	strb	r2, [r3, #0]
+ b1c:	68fb      	ldr	r3, [r7, #12]
+ b1e:	1c5a      	adds	r2, r3, #1
+ b20:	60fa      	str	r2, [r7, #12]
+ b22:	2200      	movs	r2, #0
+ b24:	701a      	strb	r2, [r3, #0]
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/startup.c:62 (discriminator 1)
 
     uint_8 *bss_start = (uint_8 *)__START_BSS;
@@ -753,67 +763,67 @@ E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/.
     uint_32 n = bss_end - bss_start;
     
     while (n--)
- b12:	68bb      	ldr	r3, [r7, #8]
- b14:	1e5a      	subs	r2, r3, #1
- b16:	60ba      	str	r2, [r7, #8]
- b18:	2b00      	cmp	r3, #0
- b1a:	d1f5      	bne.n	b08 <m_zero_fill_bss+0x18>
+ b26:	68bb      	ldr	r3, [r7, #8]
+ b28:	1e5a      	subs	r2, r3, #1
+ b2a:	60ba      	str	r2, [r7, #8]
+ b2c:	2b00      	cmp	r3, #0
+ b2e:	d1f5      	bne.n	b1c <m_zero_fill_bss+0x18>
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/startup.c:64
     	*bss_start++ = 0;
 }
- b1c:	46bd      	mov	sp, r7
- b1e:	b004      	add	sp, #16
- b20:	bd80      	pop	{r7, pc}
- b22:	46c0      	nop			; (mov r8, r8)
- b24:	20000410 	.word	0x20000410
- b28:	20000410 	.word	0x20000410
+ b30:	46bd      	mov	sp, r7
+ b32:	b004      	add	sp, #16
+ b34:	bd80      	pop	{r7, pc}
+ b36:	46c0      	nop			; (mov r8, r8)
+ b38:	20000410 	.word	0x20000410
+ b3c:	20000410 	.word	0x20000410
 
-00000b2c <m_data_seg_init>:
+00000b40 <m_data_seg_init>:
 m_data_seg_init():
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/startup.c:68
 
 //复制ROM数据至RAM
 void m_data_seg_init(void)
 {
- b2c:	b580      	push	{r7, lr}
- b2e:	b084      	sub	sp, #16
- b30:	af00      	add	r7, sp, #0
+ b40:	b580      	push	{r7, lr}
+ b42:	b084      	sub	sp, #16
+ b44:	af00      	add	r7, sp, #0
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/startup.c:73
 	extern char __START_DATA[];
 	extern char __END_DATA[];
 	extern char __START_DATA_ROM[];
 	
 	uint_8 *data_start = (uint_8 *)__START_DATA;
- b32:	4b0d      	ldr	r3, [pc, #52]	; (b68 <m_data_seg_init+0x3c>)
- b34:	60fb      	str	r3, [r7, #12]
+ b46:	4b0d      	ldr	r3, [pc, #52]	; (b7c <m_data_seg_init+0x3c>)
+ b48:	60fb      	str	r3, [r7, #12]
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/startup.c:74
 	uint_8 *data_end   = (uint_8 *)__END_DATA;
- b36:	4b0d      	ldr	r3, [pc, #52]	; (b6c <m_data_seg_init+0x40>)
- b38:	603b      	str	r3, [r7, #0]
+ b4a:	4b0d      	ldr	r3, [pc, #52]	; (b80 <m_data_seg_init+0x40>)
+ b4c:	603b      	str	r3, [r7, #0]
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/startup.c:75
 	uint_8 *data_rom_start = (uint_8 *)__START_DATA_ROM;
- b3a:	4b0d      	ldr	r3, [pc, #52]	; (b70 <m_data_seg_init+0x44>)
- b3c:	60bb      	str	r3, [r7, #8]
+ b4e:	4b0d      	ldr	r3, [pc, #52]	; (b84 <m_data_seg_init+0x44>)
+ b50:	60bb      	str	r3, [r7, #8]
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/startup.c:76
 	uint_32 n = data_end - data_start;
- b3e:	683a      	ldr	r2, [r7, #0]
- b40:	68fb      	ldr	r3, [r7, #12]
- b42:	1ad3      	subs	r3, r2, r3
- b44:	607b      	str	r3, [r7, #4]
+ b52:	683a      	ldr	r2, [r7, #0]
+ b54:	68fb      	ldr	r3, [r7, #12]
+ b56:	1ad3      	subs	r3, r2, r3
+ b58:	607b      	str	r3, [r7, #4]
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/startup.c:78
 	
 	while (n--)
- b46:	e007      	b.n	b58 <m_data_seg_init+0x2c>
+ b5a:	e007      	b.n	b6c <m_data_seg_init+0x2c>
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/startup.c:79
 	    *data_start++ = *data_rom_start++;
- b48:	68fb      	ldr	r3, [r7, #12]
- b4a:	1c5a      	adds	r2, r3, #1
- b4c:	60fa      	str	r2, [r7, #12]
- b4e:	68ba      	ldr	r2, [r7, #8]
- b50:	1c51      	adds	r1, r2, #1
- b52:	60b9      	str	r1, [r7, #8]
- b54:	7812      	ldrb	r2, [r2, #0]
- b56:	701a      	strb	r2, [r3, #0]
+ b5c:	68fb      	ldr	r3, [r7, #12]
+ b5e:	1c5a      	adds	r2, r3, #1
+ b60:	60fa      	str	r2, [r7, #12]
+ b62:	68ba      	ldr	r2, [r7, #8]
+ b64:	1c51      	adds	r1, r2, #1
+ b66:	60b9      	str	r1, [r7, #8]
+ b68:	7812      	ldrb	r2, [r2, #0]
+ b6a:	701a      	strb	r2, [r3, #0]
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/startup.c:78 (discriminator 1)
 	uint_8 *data_start = (uint_8 *)__START_DATA;
 	uint_8 *data_end   = (uint_8 *)__END_DATA;
@@ -821,54 +831,54 @@ E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/.
 	uint_32 n = data_end - data_start;
 	
 	while (n--)
- b58:	687b      	ldr	r3, [r7, #4]
- b5a:	1e5a      	subs	r2, r3, #1
- b5c:	607a      	str	r2, [r7, #4]
- b5e:	2b00      	cmp	r3, #0
- b60:	d1f2      	bne.n	b48 <m_data_seg_init+0x1c>
+ b6c:	687b      	ldr	r3, [r7, #4]
+ b6e:	1e5a      	subs	r2, r3, #1
+ b70:	607a      	str	r2, [r7, #4]
+ b72:	2b00      	cmp	r3, #0
+ b74:	d1f2      	bne.n	b5c <m_data_seg_init+0x1c>
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/startup.c:80
 	    *data_start++ = *data_rom_start++;
 }
- b62:	46bd      	mov	sp, r7
- b64:	b004      	add	sp, #16
- b66:	bd80      	pop	{r7, pc}
- b68:	20000410 	.word	0x20000410
- b6c:	20000410 	.word	0x20000410
- b70:	00000d48 	.word	0x00000d48
+ b76:	46bd      	mov	sp, r7
+ b78:	b004      	add	sp, #16
+ b7a:	bd80      	pop	{r7, pc}
+ b7c:	20000410 	.word	0x20000410
+ b80:	20000410 	.word	0x20000410
+ b84:	00000d5c 	.word	0x00000d5c
 
-00000b74 <sys_pin_enable_port>:
+00000b88 <sys_pin_enable_port>:
 sys_pin_enable_port():
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/startup.c:84
 
 //使能端口时钟
 void sys_pin_enable_port(void)
 {
- b74:	b580      	push	{r7, lr}
- b76:	af00      	add	r7, sp, #0
+ b88:	b580      	push	{r7, lr}
+ b8a:	af00      	add	r7, sp, #0
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/startup.c:85
 	SIM_SCGC5 |= SIM_SCGC5_PORTA_MASK
- b78:	4a05      	ldr	r2, [pc, #20]	; (b90 <sys_pin_enable_port+0x1c>)
- b7a:	4905      	ldr	r1, [pc, #20]	; (b90 <sys_pin_enable_port+0x1c>)
- b7c:	4b05      	ldr	r3, [pc, #20]	; (b94 <sys_pin_enable_port+0x20>)
- b7e:	58cb      	ldr	r3, [r1, r3]
- b80:	21f8      	movs	r1, #248	; 0xf8
- b82:	0189      	lsls	r1, r1, #6
- b84:	4319      	orrs	r1, r3
- b86:	4b03      	ldr	r3, [pc, #12]	; (b94 <sys_pin_enable_port+0x20>)
- b88:	50d1      	str	r1, [r2, r3]
+ b8c:	4a05      	ldr	r2, [pc, #20]	; (ba4 <sys_pin_enable_port+0x1c>)
+ b8e:	4905      	ldr	r1, [pc, #20]	; (ba4 <sys_pin_enable_port+0x1c>)
+ b90:	4b05      	ldr	r3, [pc, #20]	; (ba8 <sys_pin_enable_port+0x20>)
+ b92:	58cb      	ldr	r3, [r1, r3]
+ b94:	21f8      	movs	r1, #248	; 0xf8
+ b96:	0189      	lsls	r1, r1, #6
+ b98:	4319      	orrs	r1, r3
+ b9a:	4b03      	ldr	r3, [pc, #12]	; (ba8 <sys_pin_enable_port+0x20>)
+ b9c:	50d1      	str	r1, [r2, r3]
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/startup.c:90
 			  | SIM_SCGC5_PORTB_MASK
 			  | SIM_SCGC5_PORTC_MASK
 			  | SIM_SCGC5_PORTD_MASK
 			  | SIM_SCGC5_PORTE_MASK; 
 }
- b8a:	46bd      	mov	sp, r7
- b8c:	bd80      	pop	{r7, pc}
- b8e:	46c0      	nop			; (mov r8, r8)
- b90:	40047000 	.word	0x40047000
- b94:	00001038 	.word	0x00001038
+ b9e:	46bd      	mov	sp, r7
+ ba0:	bd80      	pop	{r7, pc}
+ ba2:	46c0      	nop			; (mov r8, r8)
+ ba4:	40047000 	.word	0x40047000
+ ba8:	00001038 	.word	0x00001038
 
-00000b98 <sys_init>:
+00000bac <sys_init>:
 sys_init():
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/sysinit.c:12
 //功能概要：(1)KL25的EXTAL(40)、XTAL(41)接8Mhz外部晶振，产生PLL/FLL输出时钟频
@@ -877,18 +887,18 @@ E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/.
 //===========================================================================
 void sys_init(void)  
 {
- b98:	b580      	push	{r7, lr}
- b9a:	b082      	sub	sp, #8
- b9c:	af00      	add	r7, sp, #0
+ bac:	b580      	push	{r7, lr}
+ bae:	b082      	sub	sp, #8
+ bb0:	af00      	add	r7, sp, #0
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/sysinit.c:13
     uint_32 i = 0;
- b9e:	2300      	movs	r3, #0
- ba0:	607b      	str	r3, [r7, #4]
+ bb2:	2300      	movs	r3, #0
+ bb4:	607b      	str	r3, [r7, #4]
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/sysinit.c:14
     uint_8 temp_reg = 0;
- ba2:	1cfb      	adds	r3, r7, #3
- ba4:	2200      	movs	r2, #0
- ba6:	701a      	strb	r2, [r3, #0]
+ bb6:	1cfb      	adds	r3, r7, #3
+ bb8:	2200      	movs	r2, #0
+ bba:	701a      	strb	r2, [r3, #0]
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/sysinit.c:21
  //1.首先从FEI模式过渡到FBE模式
     
@@ -896,37 +906,37 @@ E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/.
     //C2[RANGE]设置为0b01；C2[HGO]设为1以配置晶振来进行高增益操作；因为
     //正在使用的外部参考时钟源是晶振，所以C2[EREFS]设置为1。
     MCG_C2 = (MCG_C2_RANGE0(1) | MCG_C2_EREFS0_MASK);
- ba8:	4b54      	ldr	r3, [pc, #336]	; (cfc <sys_init+0x164>)
- baa:	2214      	movs	r2, #20
- bac:	705a      	strb	r2, [r3, #1]
+ bbc:	4b54      	ldr	r3, [pc, #336]	; (d10 <sys_init+0x164>)
+ bbe:	2214      	movs	r2, #20
+ bc0:	705a      	strb	r2, [r3, #1]
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/sysinit.c:26
     //C1 = 0x90 ，C1[CLKS]设置为2’b10，以便选择作为系统时钟源的外部参考时钟。
     //C1[FRDIV]设置为3'b011，对应256分频,因为8MHz/256=31.25kHz在由FLL要求的
     //31.25kHz至39.0625 kHz频率范围内。C1[IREFS]清除为0，选择外部参考时钟和
     //外部晶振。
     MCG_C1 = (MCG_C1_CLKS(2) | MCG_C1_FRDIV(3));
- bae:	4b53      	ldr	r3, [pc, #332]	; (cfc <sys_init+0x164>)
- bb0:	2298      	movs	r2, #152	; 0x98
- bb2:	701a      	strb	r2, [r3, #0]
+ bc2:	4b53      	ldr	r3, [pc, #332]	; (d10 <sys_init+0x164>)
+ bc4:	2298      	movs	r2, #152	; 0x98
+ bc6:	701a      	strb	r2, [r3, #0]
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/sysinit.c:28
     //需要等到S[OSCINIT]被置位外部晶振才能使用
     for (i = 0 ; i < 20000 ; i++)
- bb4:	2300      	movs	r3, #0
- bb6:	607b      	str	r3, [r7, #4]
- bb8:	e00a      	b.n	bd0 <sys_init+0x38>
+ bc8:	2300      	movs	r3, #0
+ bca:	607b      	str	r3, [r7, #4]
+ bcc:	e00a      	b.n	be4 <sys_init+0x38>
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/sysinit.c:31
     {
         //如果S[OSCINIT]在循环结束之前被置位就跳出循环
         if (MCG_S & MCG_S_OSCINIT0_MASK) break;
- bba:	4b50      	ldr	r3, [pc, #320]	; (cfc <sys_init+0x164>)
- bbc:	799b      	ldrb	r3, [r3, #6]
- bbe:	b2db      	uxtb	r3, r3
- bc0:	1c1a      	adds	r2, r3, #0
- bc2:	2302      	movs	r3, #2
- bc4:	4013      	ands	r3, r2
- bc6:	d000      	beq.n	bca <sys_init+0x32>
+ bce:	4b50      	ldr	r3, [pc, #320]	; (d10 <sys_init+0x164>)
+ bd0:	799b      	ldrb	r3, [r3, #6]
+ bd2:	b2db      	uxtb	r3, r3
+ bd4:	1c1a      	adds	r2, r3, #0
+ bd6:	2302      	movs	r3, #2
+ bd8:	4013      	ands	r3, r2
+ bda:	d000      	beq.n	bde <sys_init+0x32>
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/sysinit.c:31 (discriminator 1)
- bc8:	e006      	b.n	bd8 <sys_init+0x40>
+ bdc:	e006      	b.n	bec <sys_init+0x40>
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/sysinit.c:28
     //C1[FRDIV]设置为3'b011，对应256分频,因为8MHz/256=31.25kHz在由FLL要求的
     //31.25kHz至39.0625 kHz频率范围内。C1[IREFS]清除为0，选择外部参考时钟和
@@ -934,14 +944,14 @@ E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/.
     MCG_C1 = (MCG_C1_CLKS(2) | MCG_C1_FRDIV(3));
     //需要等到S[OSCINIT]被置位外部晶振才能使用
     for (i = 0 ; i < 20000 ; i++)
- bca:	687b      	ldr	r3, [r7, #4]
- bcc:	3301      	adds	r3, #1
- bce:	607b      	str	r3, [r7, #4]
+ bde:	687b      	ldr	r3, [r7, #4]
+ be0:	3301      	adds	r3, #1
+ be2:	607b      	str	r3, [r7, #4]
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/sysinit.c:28 (discriminator 1)
- bd0:	687a      	ldr	r2, [r7, #4]
- bd2:	4b4b      	ldr	r3, [pc, #300]	; (d00 <sys_init+0x168>)
- bd4:	429a      	cmp	r2, r3
- bd6:	d9f0      	bls.n	bba <sys_init+0x22>
+ be4:	687a      	ldr	r2, [r7, #4]
+ be6:	4b4b      	ldr	r3, [pc, #300]	; (d14 <sys_init+0x168>)
+ be8:	429a      	cmp	r2, r3
+ bea:	d9f0      	bls.n	bce <sys_init+0x22>
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/sysinit.c:34
     {
         //如果S[OSCINIT]在循环结束之前被置位就跳出循环
@@ -949,22 +959,22 @@ E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/.
     }
     //等待参考时钟状态位清0
     for (i = 0 ; i < 2000 ; i++)
- bd8:	2300      	movs	r3, #0
- bda:	607b      	str	r3, [r7, #4]
- bdc:	e00a      	b.n	bf4 <sys_init+0x5c>
+ bec:	2300      	movs	r3, #0
+ bee:	607b      	str	r3, [r7, #4]
+ bf0:	e00a      	b.n	c08 <sys_init+0x5c>
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/sysinit.c:37
     {
         //如果IREFST在循环结束之前被清0就跳出循环
         if (!(MCG_S & MCG_S_IREFST_MASK)) break;
- bde:	4b47      	ldr	r3, [pc, #284]	; (cfc <sys_init+0x164>)
- be0:	799b      	ldrb	r3, [r3, #6]
- be2:	b2db      	uxtb	r3, r3
- be4:	1c1a      	adds	r2, r3, #0
- be6:	2310      	movs	r3, #16
- be8:	4013      	ands	r3, r2
- bea:	d100      	bne.n	bee <sys_init+0x56>
+ bf2:	4b47      	ldr	r3, [pc, #284]	; (d10 <sys_init+0x164>)
+ bf4:	799b      	ldrb	r3, [r3, #6]
+ bf6:	b2db      	uxtb	r3, r3
+ bf8:	1c1a      	adds	r2, r3, #0
+ bfa:	2310      	movs	r3, #16
+ bfc:	4013      	ands	r3, r2
+ bfe:	d100      	bne.n	c02 <sys_init+0x56>
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/sysinit.c:37 (discriminator 1)
- bec:	e006      	b.n	bfc <sys_init+0x64>
+ c00:	e006      	b.n	c10 <sys_init+0x64>
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/sysinit.c:34
     {
         //如果S[OSCINIT]在循环结束之前被置位就跳出循环
@@ -972,14 +982,14 @@ E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/.
     }
     //等待参考时钟状态位清0
     for (i = 0 ; i < 2000 ; i++)
- bee:	687b      	ldr	r3, [r7, #4]
- bf0:	3301      	adds	r3, #1
- bf2:	607b      	str	r3, [r7, #4]
+ c02:	687b      	ldr	r3, [r7, #4]
+ c04:	3301      	adds	r3, #1
+ c06:	607b      	str	r3, [r7, #4]
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/sysinit.c:34 (discriminator 1)
- bf4:	687a      	ldr	r2, [r7, #4]
- bf6:	4b43      	ldr	r3, [pc, #268]	; (d04 <sys_init+0x16c>)
- bf8:	429a      	cmp	r2, r3
- bfa:	d9f0      	bls.n	bde <sys_init+0x46>
+ c08:	687a      	ldr	r2, [r7, #4]
+ c0a:	4b43      	ldr	r3, [pc, #268]	; (d18 <sys_init+0x16c>)
+ c0c:	429a      	cmp	r2, r3
+ c0e:	d9f0      	bls.n	bf2 <sys_init+0x46>
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/sysinit.c:40
     {
         //如果IREFST在循环结束之前被清0就跳出循环
@@ -987,24 +997,24 @@ E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/.
     }
     //等待时钟状态位以显示时钟源为外部参考时钟
     for (i = 0 ; i < 2000 ; i++)
- bfc:	2300      	movs	r3, #0
- bfe:	607b      	str	r3, [r7, #4]
- c00:	e00c      	b.n	c1c <sys_init+0x84>
+ c10:	2300      	movs	r3, #0
+ c12:	607b      	str	r3, [r7, #4]
+ c14:	e00c      	b.n	c30 <sys_init+0x84>
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/sysinit.c:43
     {
         //如果CLKST显示外部时钟被选择，在循环结束之前就跳出循环
         if (((MCG_S & MCG_S_CLKST_MASK) >> MCG_S_CLKST_SHIFT) == 0x2) break;
- c02:	4b3e      	ldr	r3, [pc, #248]	; (cfc <sys_init+0x164>)
- c04:	799b      	ldrb	r3, [r3, #6]
- c06:	b2db      	uxtb	r3, r3
- c08:	1c1a      	adds	r2, r3, #0
- c0a:	230c      	movs	r3, #12
- c0c:	4013      	ands	r3, r2
- c0e:	089b      	lsrs	r3, r3, #2
- c10:	2b02      	cmp	r3, #2
- c12:	d100      	bne.n	c16 <sys_init+0x7e>
+ c16:	4b3e      	ldr	r3, [pc, #248]	; (d10 <sys_init+0x164>)
+ c18:	799b      	ldrb	r3, [r3, #6]
+ c1a:	b2db      	uxtb	r3, r3
+ c1c:	1c1a      	adds	r2, r3, #0
+ c1e:	230c      	movs	r3, #12
+ c20:	4013      	ands	r3, r2
+ c22:	089b      	lsrs	r3, r3, #2
+ c24:	2b02      	cmp	r3, #2
+ c26:	d100      	bne.n	c2a <sys_init+0x7e>
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/sysinit.c:43 (discriminator 1)
- c14:	e006      	b.n	c24 <sys_init+0x8c>
+ c28:	e006      	b.n	c38 <sys_init+0x8c>
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/sysinit.c:40
     {
         //如果IREFST在循环结束之前被清0就跳出循环
@@ -1012,14 +1022,14 @@ E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/.
     }
     //等待时钟状态位以显示时钟源为外部参考时钟
     for (i = 0 ; i < 2000 ; i++)
- c16:	687b      	ldr	r3, [r7, #4]
- c18:	3301      	adds	r3, #1
- c1a:	607b      	str	r3, [r7, #4]
+ c2a:	687b      	ldr	r3, [r7, #4]
+ c2c:	3301      	adds	r3, #1
+ c2e:	607b      	str	r3, [r7, #4]
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/sysinit.c:40 (discriminator 1)
- c1c:	687a      	ldr	r2, [r7, #4]
- c1e:	4b39      	ldr	r3, [pc, #228]	; (d04 <sys_init+0x16c>)
- c20:	429a      	cmp	r2, r3
- c22:	d9ee      	bls.n	c02 <sys_init+0x6a>
+ c30:	687a      	ldr	r2, [r7, #4]
+ c32:	4b39      	ldr	r3, [pc, #228]	; (d18 <sys_init+0x16c>)
+ c34:	429a      	cmp	r2, r3
+ c36:	d9ee      	bls.n	c16 <sys_init+0x6a>
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/sysinit.c:46
     {
         //如果CLKST显示外部时钟被选择，在循环结束之前就跳出循环
@@ -1027,73 +1037,73 @@ E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/.
     }
  //2.现在处于FBE状态，使能时钟监视器，由FBE直接转换为PBE模式
     MCG_C6 |= MCG_C6_CME0_MASK;
- c24:	4b35      	ldr	r3, [pc, #212]	; (cfc <sys_init+0x164>)
- c26:	4a35      	ldr	r2, [pc, #212]	; (cfc <sys_init+0x164>)
- c28:	7952      	ldrb	r2, [r2, #5]
- c2a:	b2d2      	uxtb	r2, r2
- c2c:	2120      	movs	r1, #32
- c2e:	430a      	orrs	r2, r1
- c30:	b2d2      	uxtb	r2, r2
- c32:	715a      	strb	r2, [r3, #5]
+ c38:	4b35      	ldr	r3, [pc, #212]	; (d10 <sys_init+0x164>)
+ c3a:	4a35      	ldr	r2, [pc, #212]	; (d10 <sys_init+0x164>)
+ c3c:	7952      	ldrb	r2, [r2, #5]
+ c3e:	b2d2      	uxtb	r2, r2
+ c40:	2120      	movs	r1, #32
+ c42:	430a      	orrs	r2, r1
+ c44:	b2d2      	uxtb	r2, r2
+ c46:	715a      	strb	r2, [r3, #5]
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/sysinit.c:48
     //配置PLL为2分频
     MCG_C5 |= MCG_C5_PRDIV0(1); 
- c34:	4b31      	ldr	r3, [pc, #196]	; (cfc <sys_init+0x164>)
- c36:	4a31      	ldr	r2, [pc, #196]	; (cfc <sys_init+0x164>)
- c38:	7912      	ldrb	r2, [r2, #4]
- c3a:	b2d2      	uxtb	r2, r2
- c3c:	2101      	movs	r1, #1
- c3e:	430a      	orrs	r2, r1
- c40:	b2d2      	uxtb	r2, r2
- c42:	711a      	strb	r2, [r3, #4]
+ c48:	4b31      	ldr	r3, [pc, #196]	; (d10 <sys_init+0x164>)
+ c4a:	4a31      	ldr	r2, [pc, #196]	; (d10 <sys_init+0x164>)
+ c4c:	7912      	ldrb	r2, [r2, #4]
+ c4e:	b2d2      	uxtb	r2, r2
+ c50:	2101      	movs	r1, #1
+ c52:	430a      	orrs	r2, r1
+ c54:	b2d2      	uxtb	r2, r2
+ c56:	711a      	strb	r2, [r3, #4]
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/sysinit.c:50
     //配置MCG_C6 以设置PLL倍频因子并且时能PLL，PLLS位被置位来时能PLL，MCGOUT时钟源仍然是外部参考时钟          
     temp_reg = MCG_C6; //存储当前C6的值（因为CME0位之前被置位了）
- c44:	4a2d      	ldr	r2, [pc, #180]	; (cfc <sys_init+0x164>)
- c46:	1cfb      	adds	r3, r7, #3
- c48:	7952      	ldrb	r2, [r2, #5]
- c4a:	701a      	strb	r2, [r3, #0]
+ c58:	4a2d      	ldr	r2, [pc, #180]	; (d10 <sys_init+0x164>)
+ c5a:	1cfb      	adds	r3, r7, #3
+ c5c:	7952      	ldrb	r2, [r2, #5]
+ c5e:	701a      	strb	r2, [r3, #0]
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/sysinit.c:51
     temp_reg &= ~MCG_C6_VDIV0_MASK; //将VDIV清0
- c4c:	1cfb      	adds	r3, r7, #3
- c4e:	1cfa      	adds	r2, r7, #3
- c50:	7812      	ldrb	r2, [r2, #0]
- c52:	211f      	movs	r1, #31
- c54:	438a      	bics	r2, r1
- c56:	701a      	strb	r2, [r3, #0]
+ c60:	1cfb      	adds	r3, r7, #3
+ c62:	1cfa      	adds	r2, r7, #3
+ c64:	7812      	ldrb	r2, [r2, #0]
+ c66:	211f      	movs	r1, #31
+ c68:	438a      	bics	r2, r1
+ c6a:	701a      	strb	r2, [r3, #0]
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/sysinit.c:52
     temp_reg |= MCG_C6_PLLS_MASK | MCG_C6_VDIV0(0); // 重新写值到VDIV 并且时能PLL
- c58:	1cfb      	adds	r3, r7, #3
- c5a:	1cfa      	adds	r2, r7, #3
- c5c:	7812      	ldrb	r2, [r2, #0]
- c5e:	2140      	movs	r1, #64	; 0x40
- c60:	430a      	orrs	r2, r1
- c62:	701a      	strb	r2, [r3, #0]
+ c6c:	1cfb      	adds	r3, r7, #3
+ c6e:	1cfa      	adds	r2, r7, #3
+ c70:	7812      	ldrb	r2, [r2, #0]
+ c72:	2140      	movs	r1, #64	; 0x40
+ c74:	430a      	orrs	r2, r1
+ c76:	701a      	strb	r2, [r3, #0]
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/sysinit.c:53
     MCG_C6 = temp_reg; // 更新MCG_C6的值
- c64:	4b25      	ldr	r3, [pc, #148]	; (cfc <sys_init+0x164>)
- c66:	1cfa      	adds	r2, r7, #3
- c68:	7812      	ldrb	r2, [r2, #0]
- c6a:	715a      	strb	r2, [r3, #5]
+ c78:	4b25      	ldr	r3, [pc, #148]	; (d10 <sys_init+0x164>)
+ c7a:	1cfa      	adds	r2, r7, #3
+ c7c:	7812      	ldrb	r2, [r2, #0]
+ c7e:	715a      	strb	r2, [r3, #5]
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/sysinit.c:55
     // 等待PLLST状态位被置
     for (i = 0 ; i < 2000 ; i++)
- c6c:	2300      	movs	r3, #0
- c6e:	607b      	str	r3, [r7, #4]
- c70:	e00a      	b.n	c88 <sys_init+0xf0>
+ c80:	2300      	movs	r3, #0
+ c82:	607b      	str	r3, [r7, #4]
+ c84:	e00a      	b.n	c9c <sys_init+0xf0>
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/sysinit.c:58
     {
         //如果PLLST在循环结束之前被置位就跳出循环
         if (MCG_S & MCG_S_PLLST_MASK) break;
- c72:	4b22      	ldr	r3, [pc, #136]	; (cfc <sys_init+0x164>)
- c74:	799b      	ldrb	r3, [r3, #6]
- c76:	b2db      	uxtb	r3, r3
- c78:	1c1a      	adds	r2, r3, #0
- c7a:	2320      	movs	r3, #32
- c7c:	4013      	ands	r3, r2
- c7e:	d000      	beq.n	c82 <sys_init+0xea>
+ c86:	4b22      	ldr	r3, [pc, #136]	; (d10 <sys_init+0x164>)
+ c88:	799b      	ldrb	r3, [r3, #6]
+ c8a:	b2db      	uxtb	r3, r3
+ c8c:	1c1a      	adds	r2, r3, #0
+ c8e:	2320      	movs	r3, #32
+ c90:	4013      	ands	r3, r2
+ c92:	d000      	beq.n	c96 <sys_init+0xea>
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/sysinit.c:58 (discriminator 1)
- c80:	e006      	b.n	c90 <sys_init+0xf8>
+ c94:	e006      	b.n	ca4 <sys_init+0xf8>
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/sysinit.c:55
     temp_reg = MCG_C6; //存储当前C6的值（因为CME0位之前被置位了）
     temp_reg &= ~MCG_C6_VDIV0_MASK; //将VDIV清0
@@ -1101,14 +1111,14 @@ E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/.
     MCG_C6 = temp_reg; // 更新MCG_C6的值
     // 等待PLLST状态位被置
     for (i = 0 ; i < 2000 ; i++)
- c82:	687b      	ldr	r3, [r7, #4]
- c84:	3301      	adds	r3, #1
- c86:	607b      	str	r3, [r7, #4]
+ c96:	687b      	ldr	r3, [r7, #4]
+ c98:	3301      	adds	r3, #1
+ c9a:	607b      	str	r3, [r7, #4]
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/sysinit.c:55 (discriminator 1)
- c88:	687a      	ldr	r2, [r7, #4]
- c8a:	4b1e      	ldr	r3, [pc, #120]	; (d04 <sys_init+0x16c>)
- c8c:	429a      	cmp	r2, r3
- c8e:	d9f0      	bls.n	c72 <sys_init+0xda>
+ c9c:	687a      	ldr	r2, [r7, #4]
+ c9e:	4b1e      	ldr	r3, [pc, #120]	; (d18 <sys_init+0x16c>)
+ ca0:	429a      	cmp	r2, r3
+ ca2:	d9f0      	bls.n	c86 <sys_init+0xda>
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/sysinit.c:61
     {
         //如果PLLST在循环结束之前被置位就跳出循环
@@ -1116,22 +1126,22 @@ E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/.
     }
     //等待LOCK位被置
     for (i = 0 ; i < 4000 ; i++)
- c90:	2300      	movs	r3, #0
- c92:	607b      	str	r3, [r7, #4]
- c94:	e00a      	b.n	cac <sys_init+0x114>
+ ca4:	2300      	movs	r3, #0
+ ca6:	607b      	str	r3, [r7, #4]
+ ca8:	e00a      	b.n	cc0 <sys_init+0x114>
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/sysinit.c:64
     {
         //如果LOCK在循环结束之前被置位就跳出循环
         if (MCG_S & MCG_S_LOCK0_MASK) break;
- c96:	4b19      	ldr	r3, [pc, #100]	; (cfc <sys_init+0x164>)
- c98:	799b      	ldrb	r3, [r3, #6]
- c9a:	b2db      	uxtb	r3, r3
- c9c:	1c1a      	adds	r2, r3, #0
- c9e:	2340      	movs	r3, #64	; 0x40
- ca0:	4013      	ands	r3, r2
- ca2:	d000      	beq.n	ca6 <sys_init+0x10e>
+ caa:	4b19      	ldr	r3, [pc, #100]	; (d10 <sys_init+0x164>)
+ cac:	799b      	ldrb	r3, [r3, #6]
+ cae:	b2db      	uxtb	r3, r3
+ cb0:	1c1a      	adds	r2, r3, #0
+ cb2:	2340      	movs	r3, #64	; 0x40
+ cb4:	4013      	ands	r3, r2
+ cb6:	d000      	beq.n	cba <sys_init+0x10e>
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/sysinit.c:64 (discriminator 1)
- ca4:	e006      	b.n	cb4 <sys_init+0x11c>
+ cb8:	e006      	b.n	cc8 <sys_init+0x11c>
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/sysinit.c:61
     {
         //如果PLLST在循环结束之前被置位就跳出循环
@@ -1139,14 +1149,14 @@ E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/.
     }
     //等待LOCK位被置
     for (i = 0 ; i < 4000 ; i++)
- ca6:	687b      	ldr	r3, [r7, #4]
- ca8:	3301      	adds	r3, #1
- caa:	607b      	str	r3, [r7, #4]
+ cba:	687b      	ldr	r3, [r7, #4]
+ cbc:	3301      	adds	r3, #1
+ cbe:	607b      	str	r3, [r7, #4]
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/sysinit.c:61 (discriminator 1)
- cac:	687a      	ldr	r2, [r7, #4]
- cae:	4b16      	ldr	r3, [pc, #88]	; (d08 <sys_init+0x170>)
- cb0:	429a      	cmp	r2, r3
- cb2:	d9f0      	bls.n	c96 <sys_init+0xfe>
+ cc0:	687a      	ldr	r2, [r7, #4]
+ cc2:	4b16      	ldr	r3, [pc, #88]	; (d1c <sys_init+0x170>)
+ cc4:	429a      	cmp	r2, r3
+ cc6:	d9f0      	bls.n	caa <sys_init+0xfe>
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/sysinit.c:69
         if (MCG_S & MCG_S_LOCK0_MASK) break;
     }
@@ -1154,42 +1164,42 @@ E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/.
     // 设置核心时钟分频器2分频
     //设置总线时钟分频器2分频 (总线时钟的时钟源是核心时钟)
     SIM_CLKDIV1 = (SIM_CLKDIV1_OUTDIV1(1) | SIM_CLKDIV1_OUTDIV4(1) );
- cb4:	4a15      	ldr	r2, [pc, #84]	; (d0c <sys_init+0x174>)
- cb6:	4b16      	ldr	r3, [pc, #88]	; (d10 <sys_init+0x178>)
- cb8:	4916      	ldr	r1, [pc, #88]	; (d14 <sys_init+0x17c>)
- cba:	50d1      	str	r1, [r2, r3]
+ cc8:	4a15      	ldr	r2, [pc, #84]	; (d20 <sys_init+0x174>)
+ cca:	4b16      	ldr	r3, [pc, #88]	; (d24 <sys_init+0x178>)
+ ccc:	4916      	ldr	r1, [pc, #88]	; (d28 <sys_init+0x17c>)
+ cce:	50d1      	str	r1, [r2, r3]
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/sysinit.c:71
     //清CLKS来打开CLKS多路复用器来选择PLL作为MCGCLKOUT
     MCG_C1 &= ~MCG_C1_CLKS_MASK;
- cbc:	4b0f      	ldr	r3, [pc, #60]	; (cfc <sys_init+0x164>)
- cbe:	4a0f      	ldr	r2, [pc, #60]	; (cfc <sys_init+0x164>)
- cc0:	7812      	ldrb	r2, [r2, #0]
- cc2:	b2d1      	uxtb	r1, r2
- cc4:	223f      	movs	r2, #63	; 0x3f
- cc6:	400a      	ands	r2, r1
- cc8:	b2d2      	uxtb	r2, r2
- cca:	701a      	strb	r2, [r3, #0]
+ cd0:	4b0f      	ldr	r3, [pc, #60]	; (d10 <sys_init+0x164>)
+ cd2:	4a0f      	ldr	r2, [pc, #60]	; (d10 <sys_init+0x164>)
+ cd4:	7812      	ldrb	r2, [r2, #0]
+ cd6:	b2d1      	uxtb	r1, r2
+ cd8:	223f      	movs	r2, #63	; 0x3f
+ cda:	400a      	ands	r2, r1
+ cdc:	b2d2      	uxtb	r2, r2
+ cde:	701a      	strb	r2, [r3, #0]
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/sysinit.c:73
     // 等待时钟状态位更新
     for (i = 0 ; i < 2000 ; i++)
- ccc:	2300      	movs	r3, #0
- cce:	607b      	str	r3, [r7, #4]
- cd0:	e00c      	b.n	cec <sys_init+0x154>
+ ce0:	2300      	movs	r3, #0
+ ce2:	607b      	str	r3, [r7, #4]
+ ce4:	e00c      	b.n	d00 <sys_init+0x154>
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/sysinit.c:76
     {
         //如果CLKST在循环结束之前等于3就跳出循环
         if (((MCG_S & MCG_S_CLKST_MASK) >> MCG_S_CLKST_SHIFT) == 0x3) break;
- cd2:	4b0a      	ldr	r3, [pc, #40]	; (cfc <sys_init+0x164>)
- cd4:	799b      	ldrb	r3, [r3, #6]
- cd6:	b2db      	uxtb	r3, r3
- cd8:	1c1a      	adds	r2, r3, #0
- cda:	230c      	movs	r3, #12
- cdc:	4013      	ands	r3, r2
- cde:	089b      	lsrs	r3, r3, #2
- ce0:	2b03      	cmp	r3, #3
- ce2:	d100      	bne.n	ce6 <sys_init+0x14e>
+ ce6:	4b0a      	ldr	r3, [pc, #40]	; (d10 <sys_init+0x164>)
+ ce8:	799b      	ldrb	r3, [r3, #6]
+ cea:	b2db      	uxtb	r3, r3
+ cec:	1c1a      	adds	r2, r3, #0
+ cee:	230c      	movs	r3, #12
+ cf0:	4013      	ands	r3, r2
+ cf2:	089b      	lsrs	r3, r3, #2
+ cf4:	2b03      	cmp	r3, #3
+ cf6:	d100      	bne.n	cfa <sys_init+0x14e>
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/sysinit.c:76 (discriminator 1)
- ce4:	e006      	b.n	cf4 <sys_init+0x15c>
+ cf8:	e006      	b.n	d08 <sys_init+0x15c>
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/sysinit.c:73
     //设置总线时钟分频器2分频 (总线时钟的时钟源是核心时钟)
     SIM_CLKDIV1 = (SIM_CLKDIV1_OUTDIV1(1) | SIM_CLKDIV1_OUTDIV4(1) );
@@ -1197,14 +1207,14 @@ E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/.
     MCG_C1 &= ~MCG_C1_CLKS_MASK;
     // 等待时钟状态位更新
     for (i = 0 ; i < 2000 ; i++)
- ce6:	687b      	ldr	r3, [r7, #4]
- ce8:	3301      	adds	r3, #1
- cea:	607b      	str	r3, [r7, #4]
+ cfa:	687b      	ldr	r3, [r7, #4]
+ cfc:	3301      	adds	r3, #1
+ cfe:	607b      	str	r3, [r7, #4]
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/sysinit.c:73 (discriminator 1)
- cec:	687a      	ldr	r2, [r7, #4]
- cee:	4b05      	ldr	r3, [pc, #20]	; (d04 <sys_init+0x16c>)
- cf0:	429a      	cmp	r2, r3
- cf2:	d9ee      	bls.n	cd2 <sys_init+0x13a>
+ d00:	687a      	ldr	r2, [r7, #4]
+ d02:	4b05      	ldr	r3, [pc, #20]	; (d18 <sys_init+0x16c>)
+ d04:	429a      	cmp	r2, r3
+ d06:	d9ee      	bls.n	ce6 <sys_init+0x13a>
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/sysinit.c:79
     {
         //如果CLKST在循环结束之前等于3就跳出循环
@@ -1212,19 +1222,19 @@ E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/.
     }
   //4.现在处于PEE模式
 }
- cf4:	46bd      	mov	sp, r7
- cf6:	b002      	add	sp, #8
- cf8:	bd80      	pop	{r7, pc}
- cfa:	46c0      	nop			; (mov r8, r8)
- cfc:	40064000 	.word	0x40064000
- d00:	00004e1f 	.word	0x00004e1f
- d04:	000007cf 	.word	0x000007cf
- d08:	00000f9f 	.word	0x00000f9f
- d0c:	40047000 	.word	0x40047000
- d10:	00001044 	.word	0x00001044
- d14:	10010000 	.word	0x10010000
+ d08:	46bd      	mov	sp, r7
+ d0a:	b002      	add	sp, #8
+ d0c:	bd80      	pop	{r7, pc}
+ d0e:	46c0      	nop			; (mov r8, r8)
+ d10:	40064000 	.word	0x40064000
+ d14:	00004e1f 	.word	0x00004e1f
+ d18:	000007cf 	.word	0x000007cf
+ d1c:	00000f9f 	.word	0x00000f9f
+ d20:	40047000 	.word	0x40047000
+ d24:	00001044 	.word	0x00001044
+ d28:	10010000 	.word	0x10010000
 
-00000d18 <NOS_isrDummy>:
+00000d2c <NOS_isrDummy>:
 NOS_isrDummy():
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/vectors.c:67
 	VECTOR_046,         // 0x2E  0x000000B8 - ivINT_PORT                        
@@ -1233,18 +1243,18 @@ E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/.
 
 void NOS_isrDummy(void)
 {
- d18:	b580      	push	{r7, lr}
- d1a:	af00      	add	r7, sp, #0
+ d2c:	b580      	push	{r7, lr}
+ d2e:	af00      	add	r7, sp, #0
 E:\workspace.kds\1227404005\ch04-Light(KDS)20141006\KL25_Light_Component\Debug/../03_MCU/vectors.c:68
 }
- d1c:	46bd      	mov	sp, r7
- d1e:	bd80      	pop	{r7, pc}
+ d30:	46bd      	mov	sp, r7
+ d32:	bd80      	pop	{r7, pc}
 
-00000d20 <PORT_ARR>:
+00000d34 <PORT_ARR>:
 $d():
- d20:	9000 4004 a000 4004 b000 4004 c000 4004     ...@...@...@...@
- d30:	d000 4004                                   ...@
+ d34:	9000 4004 a000 4004 b000 4004 c000 4004     ...@...@...@...@
+ d44:	d000 4004                                   ...@
 
-00000d34 <GPIO_ARR>:
- d34:	f000 400f f040 400f f080 400f f0c0 400f     ...@@..@...@...@
- d44:	f100 400f                                   ...@
+00000d48 <GPIO_ARR>:
+ d48:	f000 400f f040 400f f080 400f f0c0 400f     ...@@..@...@...@
+ d58:	f100 400f                                   ...@
