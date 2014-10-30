@@ -1,0 +1,20 @@
+KL25芯片有5组端口A-E
+每个端口都有32个引脚寄存器PORTx_PCRn(x=A-E, n=0-31)
+
+PORT_MemMapPtr: 结构体指针　 获得端口模块的基地址
+含有：   uint32_t PCR[32];    /**< Pin Control Register n, array offset: 0x0, array step: 0x4 */
+  uint32_t GPCLR;          /**< Global Pin Control Low Register, offset: 0x80 */
+  uint32_t GPCHR;          /**< Global Pin Control High Register, offset: 0x84 */
+  uint8_t RESERVED_0[24];
+  uint32_t ISFR;           /**< Interrupt Status Flag Register, offset: 0xA0 */
+  
+  port_pin = PORT_B|9
+ 经过函数转换， 
+  port = PORT_B, pin = 9;
+  
+ GPIO_MemMapPtr:　gpio结构类型体指针, 通过typedef定义类型GPIO_MemMap
+ 
+  
+C语言位操作
+~ 按位取反
+| 按位或

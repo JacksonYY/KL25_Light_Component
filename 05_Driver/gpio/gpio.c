@@ -25,7 +25,7 @@ static const GPIO_MemMapPtr GPIO_ARR[]={PTA_BASE_PTR,PTB_BASE_PTR,
 //===========================================================================
 static void gpio_port_pin_resolution(uint_16 port_pin,uint_8* port,uint_8* pin)
 {
-    *port = port_pin>>8;
+    *port = port_pin>>8;   //右移8位，得到端口号
     * pin = port_pin;
 }
 //==========================================================================
@@ -66,7 +66,7 @@ void gpio_init(uint_16 port_pin, uint_8 dir, uint_8 state)
          BSET(pin,gpio_ptr->PDDR);   //数据方向寄存器的pin位=1，定义为输出
          gpio_set(port_pin, state);  //调用gpio_set函数，设定引脚初始状态
        }
-       else         //希望为输入
+       else         //希望为输入 ， PDDR为数据方向寄存器
        BCLR(pin,gpio_ptr->PDDR);    //数据方向寄存器的pin位=0，定义为输入
 }
 
@@ -89,9 +89,9 @@ void gpio_set(uint_16 port_pin, uint_8 state)
 	
     //根据带入参数state，决定引脚为输出1还是0
     if (1==state)
-        {BSET(pin,gpio_ptr->PDOR);}
+        {BSET(pin,gpio_ptr->PDOR);} //定义引脚输出时高电平
     else
-	{BCLR(pin,gpio_ptr->PDOR);}
+	{BCLR(pin,gpio_ptr->PDOR);}   //定义引脚输出为低电平
 }
 
 //===========================================================================

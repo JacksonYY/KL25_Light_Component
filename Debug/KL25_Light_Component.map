@@ -23,8 +23,8 @@ Discarded input sections
  .debug_macro   0x00000000       0x2e ./08_Source/isr.o
  .debug_macro   0x00000000       0x52 ./08_Source/isr.o
  .debug_macro   0x00000000       0x28 ./08_Source/isr.o
- .debug_line    0x00000000      0x361 ./08_Source/isr.o
- .debug_str     0x00000000    0x21483 ./08_Source/isr.o
+ .debug_line    0x00000000      0x24d ./08_Source/isr.o
+ .debug_str     0x00000000    0x21441 ./08_Source/isr.o
  .comment       0x00000000       0x2b ./08_Source/isr.o
  .ARM.attributes
                 0x00000000       0x32 ./08_Source/isr.o
@@ -78,8 +78,8 @@ Discarded input sections
  .debug_macro   0x00000000      0x214 ./07_Soft_Component/common/common.o
  .debug_macro   0x00000000     0x5b10 ./07_Soft_Component/common/common.o
  .debug_macro   0x00000000       0x2e ./07_Soft_Component/common/common.o
- .debug_line    0x00000000      0x209 ./07_Soft_Component/common/common.o
- .debug_str     0x00000000    0x2143f ./07_Soft_Component/common/common.o
+ .debug_line    0x00000000      0x1ac ./07_Soft_Component/common/common.o
+ .debug_str     0x00000000    0x21402 ./07_Soft_Component/common/common.o
  .comment       0x00000000       0x2b ./07_Soft_Component/common/common.o
  .ARM.attributes
                 0x00000000       0x32 ./07_Soft_Component/common/common.o
@@ -186,13 +186,13 @@ LOAD ./05_Driver/gpio/gpio.o
 LOAD ./03_MCU/startup.o
 LOAD ./03_MCU/sysinit.o
 LOAD ./03_MCU/vectors.o
-LOAD c:/freescale/kds_1.1.1/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0\libgcc.a
-LOAD c:/freescale/kds_1.1.1/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib\libstdc++.a
-LOAD c:/freescale/kds_1.1.1/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib\libm.a
+LOAD d:/kds/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0\libgcc.a
+LOAD d:/kds/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib\libstdc++.a
+LOAD d:/kds/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib\libm.a
 START GROUP
-LOAD c:/freescale/kds_1.1.1/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0\libgcc.a
-LOAD c:/freescale/kds_1.1.1/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib\libg_s.a
-LOAD c:/freescale/kds_1.1.1/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib\libc_s.a
+LOAD d:/kds/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0\libgcc.a
+LOAD d:/kds/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib\libg_s.a
+LOAD d:/kds/toolchain/bin/../lib/gcc/arm-none-eabi/4.8.0/../../../../arm-none-eabi/lib\libc_s.a
 END GROUP
                 0x20003000                _estack = 0x20003000
                 0x20003000                __SP_INIT = _estack
@@ -214,51 +214,51 @@ END GROUP
  *(.cfmconfig)
                 0x00000400                . = ALIGN (0x4)
 
-.text           0x00000800      0x550
+.text           0x00000800      0x548
                 0x00000800                . = ALIGN (0x4)
  *(.text)
  *(.text*)
- .text.main     0x00000800       0x40 ./08_Source/main.o
+ .text.main     0x00000800       0x38 ./08_Source/main.o
                 0x00000800                main
  .text.light_init
-                0x00000840       0x2c ./06_App_Component/light/light.o
-                0x00000840                light_init
+                0x00000838       0x2c ./06_App_Component/light/light.o
+                0x00000838                light_init
  .text.light_change
-                0x0000086c       0x1c ./06_App_Component/light/light.o
-                0x0000086c                light_change
+                0x00000864       0x1c ./06_App_Component/light/light.o
+                0x00000864                light_change
  .text.gpio_port_pin_resolution
-                0x00000888       0x34 ./05_Driver/gpio/gpio.o
+                0x00000880       0x34 ./05_Driver/gpio/gpio.o
  .text.gpio_init
-                0x000008bc       0xe8 ./05_Driver/gpio/gpio.o
-                0x000008bc                gpio_init
+                0x000008b4       0xe8 ./05_Driver/gpio/gpio.o
+                0x000008b4                gpio_init
  .text.gpio_set
-                0x000009a4       0x80 ./05_Driver/gpio/gpio.o
-                0x000009a4                gpio_set
+                0x0000099c       0x80 ./05_Driver/gpio/gpio.o
+                0x0000099c                gpio_set
  .text.gpio_reverse
-                0x00000a24       0x54 ./05_Driver/gpio/gpio.o
-                0x00000a24                gpio_reverse
- .text.startup  0x00000a78       0x2c ./03_MCU/startup.o
-                0x00000a78                startup
+                0x00000a1c       0x54 ./05_Driver/gpio/gpio.o
+                0x00000a1c                gpio_reverse
+ .text.startup  0x00000a70       0x2c ./03_MCU/startup.o
+                0x00000a70                startup
  .text.vector_init
-                0x00000aa4       0x54 ./03_MCU/startup.o
+                0x00000a9c       0x54 ./03_MCU/startup.o
  .text.m_zero_fill_bss
-                0x00000af8       0x3c ./03_MCU/startup.o
+                0x00000af0       0x3c ./03_MCU/startup.o
  .text.m_data_seg_init
-                0x00000b34       0x48 ./03_MCU/startup.o
+                0x00000b2c       0x48 ./03_MCU/startup.o
  .text.sys_pin_enable_port
-                0x00000b7c       0x24 ./03_MCU/startup.o
+                0x00000b74       0x24 ./03_MCU/startup.o
  .text.sys_init
-                0x00000ba0      0x180 ./03_MCU/sysinit.o
-                0x00000ba0                sys_init
+                0x00000b98      0x180 ./03_MCU/sysinit.o
+                0x00000b98                sys_init
  .text.NOS_isrDummy
-                0x00000d20        0x8 ./03_MCU/vectors.o
-                0x00000d20                NOS_isrDummy
+                0x00000d18        0x8 ./03_MCU/vectors.o
+                0x00000d18                NOS_isrDummy
  *(.rodata)
  *(.rodata*)
  .rodata.PORT_ARR
-                0x00000d28       0x14 ./05_Driver/gpio/gpio.o
+                0x00000d20       0x14 ./05_Driver/gpio/gpio.o
  .rodata.GPIO_ARR
-                0x00000d3c       0x14 ./05_Driver/gpio/gpio.o
+                0x00000d34       0x14 ./05_Driver/gpio/gpio.o
  *(.glue_7)
  .glue_7        0x00000000        0x0 linker stubs
  *(.glue_7t)
@@ -266,65 +266,65 @@ END GROUP
  *(.eh_frame)
  *(.init)
  *(.fini)
-                0x00000d50                . = ALIGN (0x4)
-                0x00000d50                _etext = .
-                0x00000d50                __START_DATA_ROM = _etext
+                0x00000d48                . = ALIGN (0x4)
+                0x00000d48                _etext = .
+                0x00000d48                __START_DATA_ROM = _etext
 
-.vfp11_veneer   0x00000d50        0x0
+.vfp11_veneer   0x00000d48        0x0
  .vfp11_veneer  0x00000000        0x0 linker stubs
 
-.v4_bx          0x00000d50        0x0
+.v4_bx          0x00000d48        0x0
  .v4_bx         0x00000000        0x0 linker stubs
 
-.iplt           0x00000d50        0x0
+.iplt           0x00000d48        0x0
  .iplt          0x00000000        0x0 ./08_Source/isr.o
 
-.rel.dyn        0x00000d50        0x0
+.rel.dyn        0x00000d48        0x0
  .rel.iplt      0x00000000        0x0 ./08_Source/isr.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
 
-.ARM            0x00000d50        0x0
-                0x00000d50                __exidx_start = .
+.ARM            0x00000d48        0x0
+                0x00000d48                __exidx_start = .
  *(.ARM.exidx*)
-                0x00000d50                __exidx_end = .
+                0x00000d48                __exidx_end = .
 
-.ctors          0x00000d50        0x0
-                0x00000d50                __CTOR_LIST__ = .
+.ctors          0x00000d48        0x0
+                0x00000d48                __CTOR_LIST__ = .
  *crtbegin.o(.ctors)
  *(EXCLUDE_FILE(*crtend.o) .ctors)
  *(SORT(.ctors.*))
  *(.ctors)
-                0x00000d50                __CTOR_END__ = .
+                0x00000d48                __CTOR_END__ = .
 
-.dtors          0x00000d50        0x0
-                0x00000d50                __DTOR_LIST__ = .
+.dtors          0x00000d48        0x0
+                0x00000d48                __DTOR_LIST__ = .
  *crtbegin.o(.dtors)
  *(EXCLUDE_FILE(*crtend.o) .dtors)
  *(SORT(.dtors.*))
  *(.dtors)
-                0x00000d50                __DTOR_END__ = .
+                0x00000d48                __DTOR_END__ = .
 
-.preinit_array  0x00000d50        0x0
-                0x00000d50                PROVIDE (__preinit_array_start, .)
+.preinit_array  0x00000d48        0x0
+                0x00000d48                PROVIDE (__preinit_array_start, .)
  *(.preinit_array*)
-                0x00000d50                PROVIDE (__preinit_array_end, .)
+                0x00000d48                PROVIDE (__preinit_array_end, .)
 
-.init_array     0x00000d50        0x0
-                0x00000d50                PROVIDE (__init_array_start, .)
+.init_array     0x00000d48        0x0
+                0x00000d48                PROVIDE (__init_array_start, .)
  *(SORT(.init_array.*))
  *(.init_array*)
-                0x00000d50                PROVIDE (__init_array_end, .)
+                0x00000d48                PROVIDE (__init_array_end, .)
 
-.fini_array     0x00000d50        0x0
-                0x00000d50                PROVIDE (__fini_array_start, .)
+.fini_array     0x00000d48        0x0
+                0x00000d48                PROVIDE (__fini_array_start, .)
  *(SORT(.fini_array.*))
  *(.fini_array*)
-                0x00000d50                PROVIDE (__fini_array_end, .)
-                0x00000d50                ___ROM_AT = .
+                0x00000d48                PROVIDE (__fini_array_end, .)
+                0x00000d48                ___ROM_AT = .
 
-.data           0x20000410        0x0 load address 0x00000d50
+.data           0x20000410        0x0 load address 0x00000d48
                 0x20000410                . = ALIGN (0x4)
                 0x20000410                _sdata = .
                 0x20000410                __START_DATA = _sdata
@@ -334,13 +334,13 @@ END GROUP
                 0x20000410                _edata = .
                 0x20000410                __END_DATA = _edata
                 0x00000000                ___data_size = (_edata - _sdata)
-                0x00000d50                ___m_data_1FFFF000_ROMStart = (___ROM_AT + SIZEOF (.data))
+                0x00000d48                ___m_data_1FFFF000_ROMStart = (___ROM_AT + SIZEOF (.data))
 
 .igot.plt       0x20000410        0x0
  .igot.plt      0x00000000        0x0 ./08_Source/isr.o
 
 .m_data_1FFFF000
-                0x1ffff410        0x0 load address 0x00000d50
+                0x1ffff410        0x0 load address 0x00000d48
                 0x1ffff410                . = ALIGN (0x4)
                 0x1ffff410                ___m_data_1FFFF000_RAMStart = .
  *(.m_data_1FFFF000)
@@ -369,14 +369,14 @@ END GROUP
                 0x20000810                . = (. + __stack_size)
  *fill*         0x20000410      0x400 
                 0x20000810                . = ALIGN (0x4)
-                0x00000d50                _romp_at = ((___ROM_AT + SIZEOF (.data)) + SIZEOF (.m_data_1FFFF000))
+                0x00000d48                _romp_at = ((___ROM_AT + SIZEOF (.data)) + SIZEOF (.m_data_1FFFF000))
 
-.romp           0x1ffff410       0x24 load address 0x00000d50
-                0x00000d50                __S_romp = _romp_at
-                0x1ffff410        0x4 LONG 0xd50 ___ROM_AT
+.romp           0x1ffff410       0x24 load address 0x00000d48
+                0x00000d48                __S_romp = _romp_at
+                0x1ffff410        0x4 LONG 0xd48 ___ROM_AT
                 0x1ffff414        0x4 LONG 0x20000410 _sdata
                 0x1ffff418        0x4 LONG 0x0 ___data_size
-                0x1ffff41c        0x4 LONG 0xd50 ___m_data_1FFFF000_ROMStart
+                0x1ffff41c        0x4 LONG 0xd48 ___m_data_1FFFF000_ROMStart
                 0x1ffff420        0x4 LONG 0x1ffff410 ___m_data_1FFFF000_RAMStart
                 0x1ffff424        0x4 LONG 0x0 ___m_data_1FFFF000_ROMSize
                 0x1ffff428        0x4 LONG 0x0
@@ -450,27 +450,27 @@ OUTPUT(KL25_Light_Component.elf elf32-littlearm)
  .debug_macro   0x00000335       0x63 ./03_MCU/sysinit.o
  .debug_macro   0x00000398       0x24 ./03_MCU/vectors.o
 
-.debug_line     0x00000000     0x10dc
- .debug_line    0x00000000      0x378 ./08_Source/main.o
- .debug_line    0x00000378      0x2f8 ./06_App_Component/light/light.o
- .debug_line    0x00000670      0x2f8 ./05_Driver/gpio/gpio.o
- .debug_line    0x00000968      0x347 ./03_MCU/startup.o
- .debug_line    0x00000caf      0x342 ./03_MCU/sysinit.o
- .debug_line    0x00000ff1       0xeb ./03_MCU/vectors.o
+.debug_line     0x00000000      0xc6c
+ .debug_line    0x00000000      0x264 ./08_Source/main.o
+ .debug_line    0x00000264      0x221 ./06_App_Component/light/light.o
+ .debug_line    0x00000485      0x25e ./05_Driver/gpio/gpio.o
+ .debug_line    0x000006e3      0x270 ./03_MCU/startup.o
+ .debug_line    0x00000953      0x26b ./03_MCU/sysinit.o
+ .debug_line    0x00000bbe       0xae ./03_MCU/vectors.o
 
-.debug_str      0x00000000    0x21b48
- .debug_str     0x00000000    0x21142 ./08_Source/main.o
-                              0x2149b (size before relaxing)
- .debug_str     0x00021142       0x66 ./06_App_Component/light/light.o
-                              0x214af (size before relaxing)
- .debug_str     0x000211a8      0x152 ./05_Driver/gpio/gpio.o
-                              0x21558 (size before relaxing)
- .debug_str     0x000212fa      0x7c2 ./03_MCU/startup.o
-                              0x21b19 (size before relaxing)
- .debug_str     0x00021abc       0x4b ./03_MCU/sysinit.o
-                              0x219d9 (size before relaxing)
- .debug_str     0x00021b07       0x41 ./03_MCU/vectors.o
-                               0x27ba (size before relaxing)
+.debug_str      0x00000000    0x21b06
+ .debug_str     0x00000000    0x21100 ./08_Source/main.o
+                              0x21459 (size before relaxing)
+ .debug_str     0x00021100       0x66 ./06_App_Component/light/light.o
+                              0x21472 (size before relaxing)
+ .debug_str     0x00021166      0x152 ./05_Driver/gpio/gpio.o
+                              0x2151b (size before relaxing)
+ .debug_str     0x000212b8      0x7c2 ./03_MCU/startup.o
+                              0x21adc (size before relaxing)
+ .debug_str     0x00021a7a       0x4b ./03_MCU/sysinit.o
+                              0x2199c (size before relaxing)
+ .debug_str     0x00021ac5       0x41 ./03_MCU/vectors.o
+                               0x277d (size before relaxing)
 
 .comment        0x00000000       0x2a
  .comment       0x00000000       0x2a ./08_Source/main.o

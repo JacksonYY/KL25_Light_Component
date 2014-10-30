@@ -60,7 +60,7 @@ all: KL25_Light_Component.elf secondary-outputs
 KL25_Light_Component.elf: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: Cross ARM C++ Linker'
-	arm-none-eabi-g++ -mcpu=cortex-m0plus -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -Wall  -g3 -T "E:/BOOK/2012-2014 KL25/06-KL25CD/SD-FSL-KL25-CD(V3.3)KDS-20140930/KL25-Program(KDS_V3.3)/ch04-Light(KDS)20141006/KL25_Light_Component/04_Linker_File/intflash.ld" -nostartfiles -Xlinker --gc-sections -Wl,-Map,"KL25_Light_Component.map" -nanolibc -o "KL25_Light_Component.elf" $(OBJS) $(USER_OBJS) $(LIBS)
+	arm-none-eabi-g++ -mcpu=cortex-m0plus -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -Wall  -g3 -T E:/workspace.kds/1227404005/ch04-Light(KDS)20141006/KL25_Light_Component/04_Linker_File/intflash.ld -nostartfiles -Xlinker --gc-sections -Wl,-Map,"KL25_Light_Component.map" -nanolibc -o "KL25_Light_Component.elf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
