@@ -11,7 +11,7 @@ int main(void)
 	DISABLE_INTERRUPTS;
 	//3. 初始化外设模块
 	light_init(RUN_LIGHT_BLUE,LIGHT_OFF);     //初始化蓝灯
-	light_init(RUN_LIGHT_RED,LIGHT_OFF);
+	light_init(RUN_LIGHT_GREEN,LIGHT_OFF);
 	//4. 给有关变量赋初值
 	mRuncount=0;            //主循环计数器
 	//5. 使能模块中断
