@@ -3,11 +3,12 @@
 
 #include "includes.h"   //包含总头文件
 
-int main(void)
+int main1(void)
 {
 	//1. 声明主函数使用的变量
 	uint_32  mRuncount;     //主循环计数器
 	uint_32 lightCount;
+	int flag;
 	//2. 关总中断
 	DISABLE_INTERRUPTS;
 	//3. 初始化外设模块
@@ -17,6 +18,7 @@ int main(void)
 	//4. 给有关变量赋初值
 	mRuncount=0;            //主循环计数器
 	lightCount=0; 			//灯状态变化器
+	flag = 0;
 	//5. 使能模块中断
 	//6. 开总中断
 	ENABLE_INTERRUPTS;
@@ -33,7 +35,7 @@ int main(void)
 	    	switch (lightCount % 3)
 	    	{
 	    			case 1:
-	    				if (lightCount > 3) {
+	    				if (flag == 1) {
 	    					light_change(RUN_LIGHT_BLUE);
 	    				}
 	    				light_change(RUN_LIGHT_RED);
@@ -45,9 +47,12 @@ int main(void)
 	    			case 0:
 	    				light_change(RUN_LIGHT_GREEN);
 	    				light_change(RUN_LIGHT_BLUE);
+	    				lightCount=0;            //判断小灯计数器清零
 	    				break;
 	    	}
 	    	mRuncount=0;		   //主循环次数计数器清零
+
+	    	flag=1;
 	    }
 	   //以下加入用户程序----------------------------------------------
 	}  //主循环end_for
